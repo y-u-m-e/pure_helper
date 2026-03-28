@@ -18,7 +18,7 @@ final class RuleLoader
 	{
 	}
 
-	static Map<String, QuestRule> loadQuestRulesByName(Class<?> resourceClass, String resourcePath)
+	static Map<String, QuestRule> loadQuestRulesByName(Gson gson, Class<?> resourceClass, String resourcePath)
 	{
 		Map<String, QuestRule> loaded = new HashMap<>();
 		try (InputStream input = openResource(resourceClass, resourcePath))
@@ -30,7 +30,7 @@ final class RuleLoader
 
 			try (Reader reader = new InputStreamReader(input, StandardCharsets.UTF_8))
 			{
-				QuestRulesRoot root = new Gson().fromJson(reader, QuestRulesRoot.class);
+				QuestRulesRoot root = gson.fromJson(reader, QuestRulesRoot.class);
 				if (root == null || root.quests == null)
 				{
 					return loaded;
@@ -53,7 +53,7 @@ final class RuleLoader
 		return loaded;
 	}
 
-	static List<DiaryRule> loadDiaryRulesList(Class<?> resourceClass, String resourcePath, String fallbackResourceName)
+	static List<DiaryRule> loadDiaryRulesList(Gson gson, Class<?> resourceClass, String resourcePath, String fallbackResourceName)
 	{
 		List<DiaryRule> loaded = new ArrayList<>();
 		try (InputStream input = openResource(resourceClass, resourcePath, fallbackResourceName))
@@ -65,7 +65,7 @@ final class RuleLoader
 
 			try (Reader reader = new InputStreamReader(input, StandardCharsets.UTF_8))
 			{
-				DiaryRulesRoot root = new Gson().fromJson(reader, DiaryRulesRoot.class);
+				DiaryRulesRoot root = gson.fromJson(reader, DiaryRulesRoot.class);
 				if (root == null || root.diaries == null)
 				{
 					return loaded;

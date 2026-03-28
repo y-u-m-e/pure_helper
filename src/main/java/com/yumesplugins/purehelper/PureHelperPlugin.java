@@ -1,5 +1,6 @@
 package com.yumesplugins.purehelper;
 
+import com.google.gson.Gson;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.google.inject.Provides;
@@ -196,6 +197,9 @@ public class PureHelperPlugin extends Plugin
 
 	@Inject
 	private PureHelperStateManager stateManager;
+
+	@Inject
+	private Gson gson;
 
 	@Inject
 	private Notifier notifier;
@@ -754,7 +758,7 @@ public class PureHelperPlugin extends Plugin
 
 	private void loadQuestRules()
 	{
-		questRulesByName = RuleLoader.loadQuestRulesByName(PureHelperPlugin.class, QUEST_RULES_PATH);
+		questRulesByName = RuleLoader.loadQuestRulesByName(gson, PureHelperPlugin.class, QUEST_RULES_PATH);
 		List<String> integrityIssues = RuleLoader.validateQuestRuleGraph(questRulesByName);
 		if (!integrityIssues.isEmpty())
 		{

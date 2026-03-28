@@ -1,5 +1,6 @@
 package com.yumesplugins.purehelper;
 
+import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.awt.BorderLayout;
@@ -86,6 +87,7 @@ public class PureHelperPanel extends PluginPanel
 	private final Client client;
 	private final SpriteManager spriteManager;
 	private final PureHelperStateManager stateManager;
+	private final Gson gson;
 
 	private final JPanel tabDisplay = new JPanel(new BorderLayout());
 	private final MaterialTabGroup tabGroup = new MaterialTabGroup(tabDisplay);
@@ -136,13 +138,15 @@ public class PureHelperPanel extends PluginPanel
 		PureHelperConfig config,
 		Client client,
 		SpriteManager spriteManager,
-		PureHelperStateManager stateManager)
+		PureHelperStateManager stateManager,
+		Gson gson)
 	{
 		this.configManager = configManager;
 		this.config = config;
 		this.client = client;
 		this.spriteManager = spriteManager;
 		this.stateManager = stateManager;
+		this.gson = gson;
 		PureHelperUiConstants.applyAccent(config.accentColor());
 		this.compactRows = stateManager.isCompactRows();
 		this.collapseNotDoableQuestList = stateManager.isCollapseNotDoableQuestList();
@@ -904,7 +908,7 @@ public class PureHelperPanel extends PluginPanel
 
 	private void loadQuestRules()
 	{
-		questRulesByName = RuleLoader.loadQuestRulesByName(PureHelperPanel.class, QUEST_RULES_PATH);
+		questRulesByName = RuleLoader.loadQuestRulesByName(gson, PureHelperPanel.class, QUEST_RULES_PATH);
 		allQuestRules = new java.util.ArrayList<>(questRulesByName.values());
 		log.debug("Panel loaded {} quest rules", questRulesByName.size());
 	}
@@ -912,6 +916,7 @@ public class PureHelperPanel extends PluginPanel
 	private void loadDiaryRules()
 	{
 		allDiaryRules = RuleLoader.loadDiaryRulesList(
+			gson,
 			PureHelperPanel.class,
 			DIARY_RULES_PATH,
 			"achievement-diary-rules.json");

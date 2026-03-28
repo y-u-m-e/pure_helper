@@ -1,7 +1,6 @@
 package com.yumesplugins.purehelper;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
@@ -11,6 +10,7 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,14 +19,20 @@ import lombok.extern.slf4j.Slf4j;
 class PureHelperStateManager
 {
 	static final int STATE_SCHEMA_VERSION = 1;
-	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 	private static final Path STATE_FILE = Path.of(
 		System.getProperty("user.home"),
 		".runelite",
 		"pure-helper-state.json");
 
+	private final Gson gson;
 	private State state;
 	private boolean loaded;
+
+	@Inject
+	PureHelperStateManager(Gson gson)
+	{
+		this.gson = gson.newBuilder().setPrettyPrinting().create();
+	}
 
 	synchronized void seedSkillStateIfMissing(String avoidedSkillsCsv, String protectedSkillCapsCsv)
 	{
@@ -176,7 +182,7 @@ class PureHelperStateManager
 		Files.createDirectories(outputFile.getParent());
 		try (Writer writer = Files.newBufferedWriter(outputFile, StandardCharsets.UTF_8))
 		{
-			GSON.toJson(presetFile, writer);
+			gson.toJson(presetFile, writer);
 		}
 	}
 
@@ -190,7 +196,7 @@ class PureHelperStateManager
 
 		try (Reader reader = Files.newBufferedReader(inputFile, StandardCharsets.UTF_8))
 		{
-			BuildPresetFile imported = GSON.fromJson(reader, BuildPresetFile.class);
+			BuildPresetFile imported = gson.fromJson(reader, BuildPresetFile.class);
 			if (imported == null)
 			{
 				return false;
@@ -224,7 +230,7 @@ class PureHelperStateManager
 
 		try (Reader reader = Files.newBufferedReader(STATE_FILE, StandardCharsets.UTF_8))
 		{
-			State loadedState = GSON.fromJson(reader, State.class);
+			State loadedState = gson.fromJson(reader, State.class);
 			if (loadedState != null)
 			{
 				state = loadedState;
@@ -252,7 +258,7 @@ class PureHelperStateManager
 			Files.createDirectories(STATE_FILE.getParent());
 			try (Writer writer = Files.newBufferedWriter(STATE_FILE, StandardCharsets.UTF_8))
 			{
-				GSON.toJson(state, writer);
+				gson.toJson(state, writer);
 			}
 		}
 		catch (IOException ex)
