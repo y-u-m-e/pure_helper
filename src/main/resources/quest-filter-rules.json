@@ -1,0 +1,7330 @@
+{
+  "version": 1,
+  "schema": "pure-helper.quest-filter-rules.v1",
+  "lastUpdated": "2026-03-21",
+  "coverage": {
+    "target": "FULL_QUEST_COVERAGE",
+    "status": "FULL_COVERAGE_MANUALLY_CURATED",
+    "questsCovered": 157,
+    "questsWithAmbiguousChoiceRewards": 0,
+    "notes": "Generated from OSRS wiki scraper dataset and manually curated for ambiguous choice/lamp reward quests. Includes skill-choice-only entries from Quest experience rewards."
+  },
+  "defaultPolicy": {
+    "choiceRewards": "SAFE_UNLESS_UNAVOIDABLE",
+    "lockedQuestBehavior": "SHOW_LOCKED_WITH_REASON"
+  },
+  "notes": [
+    "Auto-generated for full quest coverage.",
+    "Rewards under fixedRewards are treated as unavoidable.",
+    "Entries flagged with hasUnmodeledChoiceRewards should be reviewed and expanded into choiceRewards options as needed."
+  ],
+  "skills": [
+    "ATTACK",
+    "STRENGTH",
+    "DEFENCE",
+    "HITPOINTS",
+    "RANGED",
+    "MAGIC",
+    "PRAYER",
+    "COOKING",
+    "WOODCUTTING",
+    "FISHING",
+    "FLETCHING",
+    "CRAFTING",
+    "SMITHING",
+    "MINING",
+    "FIREMAKING",
+    "RUNECRAFT",
+    "HERBLORE",
+    "AGILITY",
+    "THIEVING",
+    "SLAYER",
+    "FARMING",
+    "CONSTRUCTION",
+    "HUNTER"
+  ],
+  "quests": [
+    {
+      "id": "A_SOULS_BANE",
+      "name": "A Soul's Bane",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "DEFENCE",
+          "xp": 500
+        },
+        {
+          "skill": "HITPOINTS",
+          "xp": 500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/A_Soul%27s_Bane"
+      }
+    },
+    {
+      "id": "A_TAIL_OF_TWO_CATS",
+      "name": "A Tail of Two Cats",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Icthlarin's Little Helper"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "A_TAIL_OF_TWO_CATS_LAMPS",
+          "xp": 2500,
+          "count": 2,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/A_Tail_of_Two_Cats"
+      }
+    },
+    {
+      "id": "A_PORCINE_OF_INTEREST",
+      "name": "A Porcine of Interest",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "SLAYER",
+          "xp": 1000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/A_Porcine_of_Interest"
+      }
+    },
+    {
+      "id": "A_TASTE_OF_HOPE",
+      "name": "A Taste of Hope",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Darkness of Hallowvale"
+        ],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 48
+          },
+          {
+            "skill": "AGILITY",
+            "level": 45
+          },
+          {
+            "skill": "ATTACK",
+            "level": 40
+          },
+          {
+            "skill": "HERBLORE",
+            "level": 40
+          },
+          {
+            "skill": "SLAYER",
+            "level": 38
+          }
+        ]
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "A_TASTE_OF_HOPE_TOMES",
+          "xp": 2500,
+          "count": 3,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/A_Taste_of_Hope"
+      }
+    },
+    {
+      "id": "ANIMAL_MAGNETISM",
+      "name": "Animal Magnetism",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "The Restless Ghost",
+          "Ernest the Chicken",
+          "Priest in Peril"
+        ],
+        "skills": [
+          {
+            "skill": "SLAYER",
+            "level": 18
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 19
+          },
+          {
+            "skill": "RANGED",
+            "level": 30
+          },
+          {
+            "skill": "WOODCUTTING",
+            "level": 35
+          },
+          {
+            "skill": "PRAYER",
+            "level": 31
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 1000
+        },
+        {
+          "skill": "FLETCHING",
+          "xp": 1000
+        },
+        {
+          "skill": "SLAYER",
+          "xp": 1000
+        },
+        {
+          "skill": "WOODCUTTING",
+          "xp": 2500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Animal_Magnetism"
+      }
+    },
+    {
+      "id": "ANOTHER_SLICE_OF_H_A_M",
+      "name": "Another Slice of H.A.M.",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Death to the Dorgeshuun",
+          "The Giant Dwarf",
+          "The Dig Site",
+          "Druidic Ritual"
+        ],
+        "skills": [
+          {
+            "skill": "ATTACK",
+            "level": 15
+          },
+          {
+            "skill": "PRAYER",
+            "level": 25
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "MINING",
+          "xp": 3000
+        },
+        {
+          "skill": "PRAYER",
+          "xp": 3000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Another_Slice_of_H.A.M."
+      }
+    },
+    {
+      "id": "BELOW_ICE_MOUNTAIN",
+      "name": "Below Ice Mountain",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Death to the Dorgeshuun",
+          "The Giant Dwarf",
+          "The Dig Site",
+          "Druidic Ritual"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Below_Ice_Mountain"
+      }
+    },
+    {
+      "id": "BETWEEN_A_ROCK",
+      "name": "Between a Rock...",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Dwarf Cannon",
+          "Fishing Contest"
+        ],
+        "skills": [
+          {
+            "skill": "DEFENCE",
+            "level": 30
+          },
+          {
+            "skill": "MINING",
+            "level": 40
+          },
+          {
+            "skill": "SMITHING",
+            "level": 50
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "DEFENCE",
+          "xp": 5000
+        },
+        {
+          "skill": "MINING",
+          "xp": 5000
+        },
+        {
+          "skill": "SMITHING",
+          "xp": 5000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Between_a_Rock..."
+      }
+    },
+    {
+      "id": "BIG_CHOMPY_BIRD_HUNTING",
+      "name": "Big Chompy Bird Hunting",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "FLETCHING",
+            "level": 5
+          },
+          {
+            "skill": "COOKING",
+            "level": 30
+          },
+          {
+            "skill": "RANGED",
+            "level": 30
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "COOKING",
+          "xp": 1470
+        },
+        {
+          "skill": "FLETCHING",
+          "xp": 262
+        },
+        {
+          "skill": "RANGED",
+          "xp": 735
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Big_Chompy_Bird_Hunting"
+      }
+    },
+    {
+      "id": "BIOHAZARD",
+      "name": "Biohazard",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "THIEVING",
+          "xp": 1250
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Biohazard"
+      }
+    },
+    {
+      "id": "BLACK_KNIGHTS_FORTRESS",
+      "name": "Black Knights' Fortress",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Black_Knights%27_Fortress"
+      }
+    },
+    {
+      "id": "BONE_VOYAGE",
+      "name": "Bone Voyage",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "The Dig Site"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Bone_Voyage"
+      }
+    },
+    {
+      "id": "CABIN_FEVER",
+      "name": "Cabin Fever",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Pirate's Treasure",
+          "Rum Deal",
+          "Priest in Peril"
+        ],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 42
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 45
+          },
+          {
+            "skill": "SMITHING",
+            "level": 50
+          },
+          {
+            "skill": "RANGED",
+            "level": 40
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 7000
+        },
+        {
+          "skill": "CRAFTING",
+          "xp": 7000
+        },
+        {
+          "skill": "SMITHING",
+          "xp": 7000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Cabin_Fever"
+      }
+    },
+    {
+      "id": "CLIENT_OF_KOUREND",
+      "name": "Client of Kourend",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "CLIENT_OF_KOUREND_LAMPS",
+          "xp": 500,
+          "count": 2,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Client_of_Kourend"
+      }
+    },
+    {
+      "id": "CLOCK_TOWER",
+      "name": "Clock Tower",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Clock_Tower"
+      }
+    },
+    {
+      "id": "COLD_WAR",
+      "name": "Cold War",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "HUNTER",
+            "level": 10
+          },
+          {
+            "skill": "AGILITY",
+            "level": 30
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 30
+          },
+          {
+            "skill": "CONSTRUCTION",
+            "level": 34
+          },
+          {
+            "skill": "THIEVING",
+            "level": 15
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 5000
+        },
+        {
+          "skill": "CONSTRUCTION",
+          "xp": 1500
+        },
+        {
+          "skill": "CRAFTING",
+          "xp": 2000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Cold_War"
+      }
+    },
+    {
+      "id": "CONTACT",
+      "name": "Contact!",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Prince Ali Rescue",
+          "Icthlarin's Little Helper"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "THIEVING",
+          "xp": 7000
+        }
+      ],
+      "choiceRewards": [
+        {
+          "choiceGroup": "CONTACT_LAMPS",
+          "xp": 7000,
+          "count": 2,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Contact!"
+      }
+    },
+    {
+      "id": "COOKS_ASSISTANT",
+      "name": "Cook's Assistant",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "COOKING",
+          "xp": 300
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Cook%27s_Assistant"
+      }
+    },
+    {
+      "id": "CREATURE_OF_FENKENSTRAIN",
+      "name": "Creature of Fenkenstrain",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Priest in Peril",
+          "The Restless Ghost"
+        ],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 20
+          },
+          {
+            "skill": "THIEVING",
+            "level": 25
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "THIEVING",
+          "xp": 1000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Creature_of_Fenkenstrain"
+      }
+    },
+    {
+      "id": "DARKNESS_OF_HALLOWVALE",
+      "name": "Darkness of Hallowvale",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "In Aid of the Myreque"
+        ],
+        "skills": [
+          {
+            "skill": "CONSTRUCTION",
+            "level": 5
+          },
+          {
+            "skill": "MINING",
+            "level": 20
+          },
+          {
+            "skill": "THIEVING",
+            "level": 22
+          },
+          {
+            "skill": "AGILITY",
+            "level": 26
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 32
+          },
+          {
+            "skill": "MAGIC",
+            "level": 33
+          },
+          {
+            "skill": "STRENGTH",
+            "level": 40
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 7000
+        },
+        {
+          "skill": "CONSTRUCTION",
+          "xp": 2000
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 6000
+        }
+      ],
+      "choiceRewards": [
+        {
+          "choiceGroup": "DARKNESS_OF_HALLOWVALE_TOMES",
+          "xp": 2000,
+          "count": 3,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Darkness_of_Hallowvale"
+      }
+    },
+    {
+      "id": "DEATH_PLATEAU",
+      "name": "Death Plateau",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "ATTACK",
+          "xp": 3000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Death_Plateau"
+      }
+    },
+    {
+      "id": "DEATH_TO_THE_DORGESHUUN",
+      "name": "Death to the Dorgeshuun",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "The Lost Tribe"
+        ],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 23
+          },
+          {
+            "skill": "THIEVING",
+            "level": 23
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "RANGED",
+          "xp": 2000
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 2000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Death_to_the_Dorgeshuun"
+      }
+    },
+    {
+      "id": "DEMON_SLAYER",
+      "name": "Demon Slayer",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Demon_Slayer"
+      }
+    },
+    {
+      "id": "DESERT_TREASURE",
+      "name": "Desert Treasure",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [
+          "The Dig Site",
+          "Temple of Ikov",
+          "The Tourist Trap",
+          "Troll Stronghold",
+          "Priest in Peril",
+          "Waterfall Quest"
+        ],
+        "skills": [
+          {
+            "skill": "THIEVING",
+            "level": 53
+          },
+          {
+            "skill": "FIREMAKING",
+            "level": 50
+          },
+          {
+            "skill": "SLAYER",
+            "level": 10
+          },
+          {
+            "skill": "MAGIC",
+            "level": 50
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "MAGIC",
+          "xp": 20000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Desert_Treasure"
+      }
+    },
+    {
+      "id": "DEVIOUS_MINDS",
+      "name": "Devious Minds",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Wanted!",
+          "Troll Stronghold",
+          "Doric's Quest",
+          "Enter the Abyss"
+        ],
+        "skills": [
+          {
+            "skill": "SMITHING",
+            "level": 65
+          },
+          {
+            "skill": "RUNECRAFT",
+            "level": 50
+          },
+          {
+            "skill": "FLETCHING",
+            "level": 50
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "FLETCHING",
+          "xp": 5000
+        },
+        {
+          "skill": "RUNECRAFT",
+          "xp": 5000
+        },
+        {
+          "skill": "SMITHING",
+          "xp": 6500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Devious_Minds"
+      }
+    },
+    {
+      "id": "DORICS_QUEST",
+      "name": "Doric's Quest",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "MINING",
+            "level": 15
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "MINING",
+          "xp": 1300
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Doric%27s_Quest"
+      }
+    },
+    {
+      "id": "DRAGON_SLAYER",
+      "name": "Dragon Slayer I",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 8
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "DEFENCE",
+          "xp": 18650
+        },
+        {
+          "skill": "STRENGTH",
+          "xp": 18650
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Dragon_Slayer"
+      }
+    },
+    {
+      "id": "DRAGON_SLAYER_I_I",
+      "name": "Dragon Slayer II",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Grandmaster",
+      "questPoints": 5,
+      "prerequisites": {
+        "quests": [
+          "Legends' Quest",
+          "Dream Mentor",
+          "A Tail of Two Cats",
+          "Animal Magnetism",
+          "Ghosts Ahoy",
+          "Bone Voyage",
+          "Client of Kourend"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 15000
+        },
+        {
+          "skill": "MINING",
+          "xp": 18000
+        },
+        {
+          "skill": "SMITHING",
+          "xp": 25000
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 15000
+        }
+      ],
+      "choiceRewards": [
+        {
+          "choiceGroup": "DRAGON_SLAYER_II_TOMES",
+          "xp": 25000,
+          "count": 4,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Dragon_Slayer_II"
+      }
+    },
+    {
+      "id": "DREAM_MENTOR",
+      "name": "Dream Mentor",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Lunar Diplomacy",
+          "Eadgar's Ruse"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "HITPOINTS",
+          "xp": 15000
+        },
+        {
+          "skill": "MAGIC",
+          "xp": 10000
+        }
+      ],
+      "choiceRewards": [
+        {
+          "choiceGroup": "DREAM_MENTOR_LAMP",
+          "xp": 15000,
+          "count": 1,
+          "options": [
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Dream_Mentor"
+      }
+    },
+    {
+      "id": "DRUIDIC_RITUAL",
+      "name": "Druidic Ritual",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 4,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "HERBLORE",
+          "xp": 250
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Druidic_Ritual"
+      }
+    },
+    {
+      "id": "DWARF_CANNON",
+      "name": "Dwarf Cannon",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 750
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Dwarf_Cannon"
+      }
+    },
+    {
+      "id": "EADGARS_RUSE",
+      "name": "Eadgar's Ruse",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Druidic Ritual",
+          "Troll Stronghold"
+        ],
+        "skills": [
+          {
+            "skill": "HERBLORE",
+            "level": 31
+          },
+          {
+            "skill": "AGILITY",
+            "level": 44
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "HERBLORE",
+          "xp": 11000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Eadgar%27s_Ruse"
+      }
+    },
+    {
+      "id": "EAGLES_PEAK",
+      "name": "Eagles' Peak",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "HUNTER",
+            "level": 27
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "HUNTER",
+          "xp": 2500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Eagles%27_Peak"
+      }
+    },
+    {
+      "id": "ELEMENTAL_WORKSHOP_I",
+      "name": "Elemental Workshop I",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "MINING",
+            "level": 20
+          },
+          {
+            "skill": "SMITHING",
+            "level": 20
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 20
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 5000
+        },
+        {
+          "skill": "SMITHING",
+          "xp": 5000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Elemental_Workshop_I"
+      }
+    },
+    {
+      "id": "ELEMENTAL_WORKSHOP_I_I",
+      "name": "Elemental Workshop II",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "MAGIC",
+            "level": 20
+          },
+          {
+            "skill": "SMITHING",
+            "level": 30
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 7500
+        },
+        {
+          "skill": "SMITHING",
+          "xp": 7500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Elemental_Workshop_II"
+      }
+    },
+    {
+      "id": "ENAKHRAS_LAMENT",
+      "name": "Enakhra's Lament",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 50
+          },
+          {
+            "skill": "FIREMAKING",
+            "level": 45
+          },
+          {
+            "skill": "PRAYER",
+            "level": 43
+          },
+          {
+            "skill": "MAGIC",
+            "level": 39
+          },
+          {
+            "skill": "MINING",
+            "level": 45
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 7000
+        },
+        {
+          "skill": "FIREMAKING",
+          "xp": 7000
+        },
+        {
+          "skill": "MAGIC",
+          "xp": 7000
+        },
+        {
+          "skill": "MINING",
+          "xp": 7000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Enakhra%27s_Lament"
+      }
+    },
+    {
+      "id": "ENLIGHTENED_JOURNEY",
+      "name": "Enlightened Journey",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "FIREMAKING",
+            "level": 20
+          },
+          {
+            "skill": "FARMING",
+            "level": 30
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 36
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 2000
+        },
+        {
+          "skill": "FARMING",
+          "xp": 3000
+        },
+        {
+          "skill": "FIREMAKING",
+          "xp": 4000
+        },
+        {
+          "skill": "WOODCUTTING",
+          "xp": 1500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Enlightened_Journey"
+      }
+    },
+    {
+      "id": "ENTER_THE_ABYSS",
+      "name": "Enter the Abyss",
+      "members": true,
+      "miniquest": true,
+      "difficulty": "Novice",
+      "questPoints": 0,
+      "prerequisites": {
+        "quests": [
+          "Rune Mysteries"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Enter_the_Abyss"
+      }
+    },
+    {
+      "id": "ERNEST_THE_CHICKEN",
+      "name": "Ernest the Chicken",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 4,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Ernest_the_Chicken"
+      }
+    },
+    {
+      "id": "FAIRYTALE_I_GROWING_PAINS",
+      "name": "Fairytale I - Growing Pains",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Lost City",
+          "Nature Spirit"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "ATTACK",
+          "xp": 2000
+        },
+        {
+          "skill": "FARMING",
+          "xp": 3500
+        },
+        {
+          "skill": "MAGIC",
+          "xp": 1000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Fairytale_I_-_Growing_Pains"
+      }
+    },
+    {
+      "id": "FAIRYTALE_I_I_CURE_A_QUEEN",
+      "name": "Fairytale II - Cure a Queen",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Fairytale I - Growing Pains"
+        ],
+        "skills": [
+          {
+            "skill": "THIEVING",
+            "level": 40
+          },
+          {
+            "skill": "FARMING",
+            "level": 49
+          },
+          {
+            "skill": "HERBLORE",
+            "level": 57
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "HERBLORE",
+          "xp": 3500
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 2500
+        }
+      ],
+      "choiceRewards": [
+        {
+          "choiceGroup": "FAIRYTALE_II_LAMP",
+          "xp": 2500,
+          "count": 1,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Fairytale_II_-_Cure_a_Queen"
+      }
+    },
+    {
+      "id": "FAMILY_CREST",
+      "name": "Family Crest",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "MINING",
+            "level": 40
+          },
+          {
+            "skill": "SMITHING",
+            "level": 40
+          },
+          {
+            "skill": "MAGIC",
+            "level": 59
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 40
+          }
+        ]
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Family_Crest"
+      }
+    },
+    {
+      "id": "FIGHT_ARENA",
+      "name": "Fight Arena",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "ATTACK",
+          "xp": 12175
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 2175
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Fight_Arena"
+      }
+    },
+    {
+      "id": "FISHING_CONTEST",
+      "name": "Fishing Contest",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "FISHING",
+            "level": 10
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "FISHING",
+          "xp": 2437
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Fishing_Contest"
+      }
+    },
+    {
+      "id": "FORGETTABLE_TALE",
+      "name": "Forgettable Tale...",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "The Giant Dwarf",
+          "Fishing Contest"
+        ],
+        "skills": [
+          {
+            "skill": "COOKING",
+            "level": 22
+          },
+          {
+            "skill": "FARMING",
+            "level": 17
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "COOKING",
+          "xp": 5000
+        },
+        {
+          "skill": "FARMING",
+          "xp": 5000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Forgettable_Tale..."
+      }
+    },
+    {
+      "id": "GARDEN_OF_TRANQUILLITY",
+      "name": "Garden of Tranquillity",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Creature of Fenkenstrain"
+        ],
+        "skills": [
+          {
+            "skill": "FARMING",
+            "level": 25
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "FARMING",
+          "xp": 5000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Garden_of_Tranquillity"
+      }
+    },
+    {
+      "id": "GERTRUDES_CAT",
+      "name": "Gertrude's Cat",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "COOKING",
+          "xp": 1525
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Gertrude%27s_Cat"
+      }
+    },
+    {
+      "id": "GETTING_AHEAD",
+      "name": "Getting Ahead",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 30
+          },
+          {
+            "skill": "CONSTRUCTION",
+            "level": 26
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 4000
+        },
+        {
+          "skill": "CONSTRUCTION",
+          "xp": 3200
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Getting_Ahead"
+      }
+    },
+    {
+      "id": "GHOSTS_AHOY",
+      "name": "Ghosts Ahoy",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "PRAYER",
+          "xp": 2400
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Ghosts_Ahoy"
+      }
+    },
+    {
+      "id": "GOBLIN_DIPLOMACY",
+      "name": "Goblin Diplomacy",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 5,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 200
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Goblin_Diplomacy"
+      }
+    },
+    {
+      "id": "GRIM_TALES",
+      "name": "Grim Tales",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "FARMING",
+            "level": 45
+          },
+          {
+            "skill": "HERBLORE",
+            "level": 52
+          },
+          {
+            "skill": "THIEVING",
+            "level": 58
+          },
+          {
+            "skill": "AGILITY",
+            "level": 59
+          },
+          {
+            "skill": "WOODCUTTING",
+            "level": 71
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 6000
+        },
+        {
+          "skill": "FARMING",
+          "xp": 4000
+        },
+        {
+          "skill": "HERBLORE",
+          "xp": 5000
+        },
+        {
+          "skill": "HITPOINTS",
+          "xp": 5000
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 6000
+        },
+        {
+          "skill": "WOODCUTTING",
+          "xp": 14000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Grim_Tales"
+      }
+    },
+    {
+      "id": "HAUNTED_MINE",
+      "name": "Haunted Mine",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 15
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 35
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "STRENGTH",
+          "xp": 22000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Haunted_Mine"
+      }
+    },
+    {
+      "id": "HAZEEL_CULT",
+      "name": "Hazeel Cult",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "THIEVING",
+          "xp": 1500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Hazeel_Cult"
+      }
+    },
+    {
+      "id": "HEROES_QUEST",
+      "name": "Heroes' Quest",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Shield of Arrav",
+          "Lost City",
+          "Merlin's Crystal",
+          "Dragon Slayer I",
+          "Druidic Ritual"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "ATTACK",
+          "xp": 3075
+        },
+        {
+          "skill": "COOKING",
+          "xp": 2825
+        },
+        {
+          "skill": "DEFENCE",
+          "xp": 3075
+        },
+        {
+          "skill": "FIREMAKING",
+          "xp": 1575
+        },
+        {
+          "skill": "FISHING",
+          "xp": 2725
+        },
+        {
+          "skill": "HERBLORE",
+          "xp": 1325
+        },
+        {
+          "skill": "HITPOINTS",
+          "xp": 3075
+        },
+        {
+          "skill": "MINING",
+          "xp": 2575
+        },
+        {
+          "skill": "RANGED",
+          "xp": 2075
+        },
+        {
+          "skill": "SMITHING",
+          "xp": 2257
+        },
+        {
+          "skill": "STRENGTH",
+          "xp": 3075
+        },
+        {
+          "skill": "WOODCUTTING",
+          "xp": 1575
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Heroes%27_Quest"
+      }
+    },
+    {
+      "id": "HOLY_GRAIL",
+      "name": "Holy Grail",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "ATTACK",
+            "level": 20
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "DEFENCE",
+          "xp": 15300
+        },
+        {
+          "skill": "PRAYER",
+          "xp": 11000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Holy_Grail"
+      }
+    },
+    {
+      "id": "HORROR_FROM_THE_DEEP",
+      "name": "Horror from the Deep",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 35
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "MAGIC",
+          "xp": 4662
+        },
+        {
+          "skill": "RANGED",
+          "xp": 4662
+        },
+        {
+          "skill": "STRENGTH",
+          "xp": 4662
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Horror_from_the_Deep"
+      }
+    },
+    {
+      "id": "ICTHLARINS_LITTLE_HELPER",
+      "name": "Icthlarin's Little Helper",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 4000
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 4500
+        },
+        {
+          "skill": "WOODCUTTING",
+          "xp": 4000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Icthlarin%27s_Little_Helper"
+      }
+    },
+    {
+      "id": "IMP_CATCHER",
+      "name": "Imp Catcher",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "MAGIC",
+          "xp": 875
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Imp_Catcher"
+      }
+    },
+    {
+      "id": "IN_AID_OF_THE_MYREQUE",
+      "name": "In Aid of the Myreque",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "In Search of the Myreque"
+        ],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 25
+          },
+          {
+            "skill": "MINING",
+            "level": 15
+          },
+          {
+            "skill": "MAGIC",
+            "level": 7
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "ATTACK",
+          "xp": 2000
+        },
+        {
+          "skill": "CRAFTING",
+          "xp": 2000
+        },
+        {
+          "skill": "DEFENCE",
+          "xp": 2000
+        },
+        {
+          "skill": "STRENGTH",
+          "xp": 2000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/In_Aid_of_the_Myreque"
+      }
+    },
+    {
+      "id": "IN_SEARCH_OF_THE_MYREQUE",
+      "name": "In Search of the Myreque",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Nature Spirit"
+        ],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 25
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "ATTACK",
+          "xp": 600
+        },
+        {
+          "skill": "CRAFTING",
+          "xp": 600
+        },
+        {
+          "skill": "DEFENCE",
+          "xp": 600
+        },
+        {
+          "skill": "HITPOINTS",
+          "xp": 600
+        },
+        {
+          "skill": "STRENGTH",
+          "xp": 600
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/In_Search_of_the_Myreque"
+      }
+    },
+    {
+      "id": "JUNGLE_POTION",
+      "name": "Jungle Potion",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "HERBLORE",
+            "level": 3
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "HERBLORE",
+          "xp": 775
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Jungle_Potion"
+      }
+    },
+    {
+      "id": "KINGS_RANSOM",
+      "name": "King's Ransom",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Black Knights' Fortress",
+          "Holy Grail",
+          "Murder Mystery",
+          "One Small Favour"
+        ],
+        "skills": [
+          {
+            "skill": "MAGIC",
+            "level": 45
+          },
+          {
+            "skill": "DEFENCE",
+            "level": 65
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "DEFENCE",
+          "xp": 33000
+        },
+        {
+          "skill": "MAGIC",
+          "xp": 5000
+        }
+      ],
+      "choiceRewards": [
+        {
+          "choiceGroup": "KINGS_RANSOM_LAMP",
+          "xp": 5000,
+          "count": 1,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/King%27s_Ransom"
+      }
+    },
+    {
+      "id": "LEGENDS_QUEST",
+      "name": "Legends' Quest",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 4,
+      "prerequisites": {
+        "quests": [
+          "Family Crest",
+          "Heroes' Quest",
+          "Shilo Village",
+          "Underground Pass",
+          "Waterfall Quest"
+        ],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 50
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 50
+          },
+          {
+            "skill": "HERBLORE",
+            "level": 45
+          },
+          {
+            "skill": "MAGIC",
+            "level": 56
+          },
+          {
+            "skill": "MINING",
+            "level": 52
+          },
+          {
+            "skill": "PRAYER",
+            "level": 42
+          },
+          {
+            "skill": "SMITHING",
+            "level": 50
+          },
+          {
+            "skill": "STRENGTH",
+            "level": 50
+          },
+          {
+            "skill": "THIEVING",
+            "level": 50
+          },
+          {
+            "skill": "WOODCUTTING",
+            "level": 50
+          }
+        ]
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "LEGENDS_QUEST_LAMPS",
+          "xp": 30000,
+          "count": 4,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Legends%27_Quest"
+      }
+    },
+    {
+      "id": "LOST_CITY",
+      "name": "Lost City",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 31
+          },
+          {
+            "skill": "WOODCUTTING",
+            "level": 36
+          }
+        ]
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Lost_City"
+      }
+    },
+    {
+      "id": "LUNAR_DIPLOMACY",
+      "name": "Lunar Diplomacy",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "The Fremennik Trials",
+          "Lost City",
+          "Rune Mysteries",
+          "Shilo Village"
+        ],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 61
+          },
+          {
+            "skill": "DEFENCE",
+            "level": 40
+          },
+          {
+            "skill": "FIREMAKING",
+            "level": 49
+          },
+          {
+            "skill": "MAGIC",
+            "level": 65
+          },
+          {
+            "skill": "MINING",
+            "level": 60
+          },
+          {
+            "skill": "WOODCUTTING",
+            "level": 55
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "MAGIC",
+          "xp": 5000
+        },
+        {
+          "skill": "RUNECRAFT",
+          "xp": 5000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Lunar_Diplomacy"
+      }
+    },
+    {
+      "id": "MAKING_FRIENDS_WITH_MY_ARM",
+      "name": "Making Friends with My Arm",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "My Arm's Big Adventure",
+          "Swan Song",
+          "Cold War",
+          "Romeo & Juliet"
+        ],
+        "skills": [
+          {
+            "skill": "FIREMAKING",
+            "level": 66
+          },
+          {
+            "skill": "MINING",
+            "level": 72
+          },
+          {
+            "skill": "CONSTRUCTION",
+            "level": 35
+          },
+          {
+            "skill": "AGILITY",
+            "level": 68
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 10000
+        },
+        {
+          "skill": "CONSTRUCTION",
+          "xp": 2000
+        },
+        {
+          "skill": "FIREMAKING",
+          "xp": 5000
+        },
+        {
+          "skill": "MINING",
+          "xp": 10000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Making_Friends_with_My_Arm"
+      }
+    },
+    {
+      "id": "MAKING_HISTORY",
+      "name": "Making History",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [
+          "Priest in Peril",
+          "The Restless Ghost"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 1000
+        },
+        {
+          "skill": "PRAYER",
+          "xp": 1000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Making_History"
+      }
+    },
+    {
+      "id": "MERLINS_CRYSTAL",
+      "name": "Merlin's Crystal",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 6,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Merlin%27s_Crystal"
+      }
+    },
+    {
+      "id": "MISTHALIN_MYSTERY",
+      "name": "Misthalin Mystery",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 600
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Misthalin_Mystery"
+      }
+    },
+    {
+      "id": "MONKS_FRIEND",
+      "name": "Monk's Friend",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "WOODCUTTING",
+          "xp": 2000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Monk%27s_Friend"
+      }
+    },
+    {
+      "id": "MONKEY_MADNESS_I",
+      "name": "Monkey Madness I",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [
+          "The Grand Tree",
+          "Tree Gnome Village"
+        ],
+        "skills": [
+          {
+            "skill": "PRAYER",
+            "level": 43
+          }
+        ]
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "MONKEY_MADNESS_I_PRIMARY",
+          "xp": 35000,
+          "count": 1,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            }
+          ]
+        },
+        {
+          "choiceGroup": "MONKEY_MADNESS_I_SECONDARY",
+          "xp": 20000,
+          "count": 1,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Monkey_Madness_I"
+      }
+    },
+    {
+      "id": "MONKEY_MADNESS_I_I",
+      "name": "Monkey Madness II",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Grandmaster",
+      "questPoints": 4,
+      "prerequisites": {
+        "quests": [
+          "Enlightened Journey",
+          "The Eyes of Glouphrie",
+          "Recipe for Disaster",
+          "Troll Stronghold",
+          "Watchtower"
+        ],
+        "skills": [
+          {
+            "skill": "SLAYER",
+            "level": 69
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 70
+          },
+          {
+            "skill": "HUNTER",
+            "level": 60
+          },
+          {
+            "skill": "AGILITY",
+            "level": 55
+          },
+          {
+            "skill": "THIEVING",
+            "level": 55
+          },
+          {
+            "skill": "FIREMAKING",
+            "level": 60
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 20000
+        },
+        {
+          "skill": "HUNTER",
+          "xp": 15000
+        },
+        {
+          "skill": "SLAYER",
+          "xp": 25000
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 15000
+        }
+      ],
+      "choiceRewards": [
+        {
+          "choiceGroup": "MONKEY_MADNESS_II_TOMES",
+          "xp": 50000,
+          "count": 2,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Monkey_Madness_II"
+      }
+    },
+    {
+      "id": "MOUNTAIN_DAUGHTER",
+      "name": "Mountain Daughter",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 20
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "ATTACK",
+          "xp": 1000
+        },
+        {
+          "skill": "PRAYER",
+          "xp": 2000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Mountain_Daughter"
+      }
+    },
+    {
+      "id": "MOURNINGS_END_PART_I",
+      "name": "Mourning's End Part I",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Roving Elves",
+          "Big Chompy Bird Hunting",
+          "Sheep Herder"
+        ],
+        "skills": [
+          {
+            "skill": "RANGED",
+            "level": 60
+          },
+          {
+            "skill": "THIEVING",
+            "level": 50
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "HITPOINTS",
+          "xp": 25000
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 25000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Mourning%27s_Ends_Part_I"
+      }
+    },
+    {
+      "id": "MOURNINGS_END_PART_I_I",
+      "name": "Mourning's End Part II",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "PRAYER",
+            "level": 43
+          },
+          {
+            "skill": "AGILITY",
+            "level": 60
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 20000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Mourning%27s_Ends_Part_II"
+      }
+    },
+    {
+      "id": "MURDER_MYSTERY",
+      "name": "Murder Mystery",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 1406
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Murder_Mystery"
+      }
+    },
+    {
+      "id": "MY_ARMS_BIG_ADVENTURE",
+      "name": "My Arm's Big Adventure",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Eadgar's Ruse",
+          "The Feud",
+          "Jungle Potion"
+        ],
+        "skills": [
+          {
+            "skill": "WOODCUTTING",
+            "level": 10
+          },
+          {
+            "skill": "FARMING",
+            "level": 29
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "FARMING",
+          "xp": 5000
+        },
+        {
+          "skill": "HERBLORE",
+          "xp": 10000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/My_Arm%27s_Big_Adventure"
+      }
+    },
+    {
+      "id": "NATURE_SPIRIT",
+      "name": "Nature Spirit",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Priest in Peril",
+          "The Restless Ghost"
+        ],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 18
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 3000
+        },
+        {
+          "skill": "DEFENCE",
+          "xp": 2000
+        },
+        {
+          "skill": "HITPOINTS",
+          "xp": 2000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Nature_Spirit"
+      }
+    },
+    {
+      "id": "OBSERVATORY_QUEST",
+      "name": "Observatory Quest",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 10
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 2250
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Observatory_Quest"
+      }
+    },
+    {
+      "id": "OLAFS_QUEST",
+      "name": "Olaf's Quest",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "FIREMAKING",
+            "level": 40
+          },
+          {
+            "skill": "WOODCUTTING",
+            "level": 50
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "DEFENCE",
+          "xp": 12000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Olaf%27s_Quest"
+      }
+    },
+    {
+      "id": "ONE_SMALL_FAVOUR",
+      "name": "One Small Favour",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Rune Mysteries",
+          "Shilo Village"
+        ],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 36
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 25
+          },
+          {
+            "skill": "HERBLORE",
+            "level": 18
+          },
+          {
+            "skill": "SMITHING",
+            "level": 30
+          }
+        ]
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "ONE_SMALL_FAVOUR_LAMPS",
+          "xp": 10000,
+          "count": 2,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/One_Small_Favour"
+      }
+    },
+    {
+      "id": "PIRATES_TREASURE",
+      "name": "Pirate's Treasure",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Pirate%27s_Treasure"
+      }
+    },
+    {
+      "id": "PLAGUE_CITY",
+      "name": "Plague City",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "MINING",
+          "xp": 2425
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Plague_City"
+      }
+    },
+    {
+      "id": "PRIEST_IN_PERIL",
+      "name": "Priest in Peril",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "PRAYER",
+          "xp": 1406
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Priest_in_Peril"
+      }
+    },
+    {
+      "id": "PRINCE_ALI_RESCUE",
+      "name": "Prince Ali Rescue",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Prince_Ali_Rescue"
+      }
+    },
+    {
+      "id": "RAG_AND_BONE_MAN_I",
+      "name": "Rag and Bone Man I",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "COOKING",
+          "xp": 500
+        },
+        {
+          "skill": "PRAYER",
+          "xp": 500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Rag_and_Bone_Man"
+      }
+    },
+    {
+      "id": "RAG_AND_BONE_MAN_I_I",
+      "name": "Rag and Bone Man II",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "SLAYER",
+            "level": 40
+          },
+          {
+            "skill": "DEFENCE",
+            "level": 20
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "PRAYER",
+          "xp": 5000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Rag_and_Bone_Man_II"
+      }
+    },
+    {
+      "id": "RATCATCHERS",
+      "name": "Ratcatchers",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Icthlarin's Little Helper"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "THIEVING",
+          "xp": 4500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Ratcatchers"
+      }
+    },
+    {
+      "id": "RECIPE_FOR_DISASTER",
+      "name": "Recipe for Disaster",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Special",
+      "questPoints": 10,
+      "prerequisites": {
+        "quests": [
+          "Cook's Assistant",
+          "Fishing Contest",
+          "Goblin Diplomacy",
+          "Big Chompy Bird Hunting",
+          "Murder Mystery",
+          "Nature Spirit",
+          "Witch's House",
+          "Gertrude's Cat",
+          "Shadow of the Storm",
+          "Legends' Quest",
+          "Monkey Madness I",
+          "Desert Treasure",
+          "Horror from the Deep"
+        ],
+        "skills": [
+          {
+            "skill": "COOKING",
+            "level": 70
+          },
+          {
+            "skill": "AGILITY",
+            "level": 48
+          },
+          {
+            "skill": "MINING",
+            "level": 50
+          },
+          {
+            "skill": "FISHING",
+            "level": 53
+          },
+          {
+            "skill": "THIEVING",
+            "level": 53
+          },
+          {
+            "skill": "HERBLORE",
+            "level": 25
+          },
+          {
+            "skill": "MAGIC",
+            "level": 59
+          },
+          {
+            "skill": "SMITHING",
+            "level": 40
+          },
+          {
+            "skill": "FIREMAKING",
+            "level": 50
+          },
+          {
+            "skill": "RANGED",
+            "level": 40
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 40
+          },
+          {
+            "skill": "FLETCHING",
+            "level": 10
+          },
+          {
+            "skill": "SLAYER",
+            "level": 10
+          },
+          {
+            "skill": "WOODCUTTING",
+            "level": 36
+          }
+        ]
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "RECIPE_FOR_DISASTER_FINAL_REWARD",
+          "xp": 20000,
+          "count": 1,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Recipe_for_Disaster"
+      }
+    },
+    {
+      "id": "RECRUITMENT_DRIVE",
+      "name": "Recruitment Drive",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 1000
+        },
+        {
+          "skill": "HERBLORE",
+          "xp": 1000
+        },
+        {
+          "skill": "PRAYER",
+          "xp": 1000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Recruitment_Drive"
+      }
+    },
+    {
+      "id": "REGICIDE",
+      "name": "Regicide",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [
+          "Underground Pass"
+        ],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 56
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 10
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 13750
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Regicide"
+      }
+    },
+    {
+      "id": "ROMEO_JULIET",
+      "name": "Romeo & Juliet",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 5,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Romeo_%26_Juliet"
+      }
+    },
+    {
+      "id": "ROVING_ELVES",
+      "name": "Roving Elves",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Regicide",
+          "Waterfall Quest"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "STRENGTH",
+          "xp": 10000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Roving_Elves"
+      }
+    },
+    {
+      "id": "ROYAL_TROUBLE",
+      "name": "Royal Trouble",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 40
+          },
+          {
+            "skill": "SLAYER",
+            "level": 40
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 5000
+        },
+        {
+          "skill": "HITPOINTS",
+          "xp": 5000
+        },
+        {
+          "skill": "SLAYER",
+          "xp": 5000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Royal_Trouble"
+      }
+    },
+    {
+      "id": "RUM_DEAL",
+      "name": "Rum Deal",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Zogre Flesh Eaters",
+          "Priest in Peril"
+        ],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 42
+          },
+          {
+            "skill": "FISHING",
+            "level": 50
+          },
+          {
+            "skill": "FARMING",
+            "level": 40
+          },
+          {
+            "skill": "PRAYER",
+            "level": 47
+          },
+          {
+            "skill": "SLAYER",
+            "level": 42
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "FARMING",
+          "xp": 7000
+        },
+        {
+          "skill": "FISHING",
+          "xp": 7000
+        },
+        {
+          "skill": "PRAYER",
+          "xp": 7000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Rum_Deal"
+      }
+    },
+    {
+      "id": "RUNE_MYSTERIES",
+      "name": "Rune Mysteries",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Rune_Mysteries"
+      }
+    },
+    {
+      "id": "SCORPION_CATCHER",
+      "name": "Scorpion Catcher",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "PRAYER",
+            "level": 31
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "STRENGTH",
+          "xp": 6625
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Scorpion_Catcher"
+      }
+    },
+    {
+      "id": "SEA_SLUG",
+      "name": "Sea Slug",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "FISHING",
+          "xp": 7175
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Sea_Slug"
+      }
+    },
+    {
+      "id": "SHADES_OF_MORTTON",
+      "name": "Shades of Mort'ton",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 20
+          },
+          {
+            "skill": "HERBLORE",
+            "level": 15
+          },
+          {
+            "skill": "FIREMAKING",
+            "level": 5
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 2000
+        },
+        {
+          "skill": "HERBLORE",
+          "xp": 2000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Shades_of_Mort%27ton"
+      }
+    },
+    {
+      "id": "SHADOW_OF_THE_STORM",
+      "name": "Shadow of the Storm",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "The Golem",
+          "Demon Slayer"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "SHADOW_OF_THE_STORM_REWARD",
+          "xp": 10000,
+          "count": 1,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Shadow_of_the_Storm"
+      }
+    },
+    {
+      "id": "SHEEP_HERDER",
+      "name": "Sheep Herder",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 4,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Sheep_Herder"
+      }
+    },
+    {
+      "id": "SHEEP_SHEARER",
+      "name": "Sheep Shearer",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 150
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Sheep_Shearer"
+      }
+    },
+    {
+      "id": "SHIELD_OF_ARRAV",
+      "name": "Shield of Arrav",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Shield_of_Arrav"
+      }
+    },
+    {
+      "id": "SHILO_VILLAGE",
+      "name": "Shilo Village",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 20
+          },
+          {
+            "skill": "AGILITY",
+            "level": 32
+          },
+          {
+            "skill": "SMITHING",
+            "level": 4
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 3875
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Shilo_Village"
+      }
+    },
+    {
+      "id": "SONG_OF_THE_ELVES",
+      "name": "Song of the Elves",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Grandmaster",
+      "questPoints": 4,
+      "prerequisites": {
+        "quests": [
+          "Mourning's End Part II",
+          "Making History"
+        ],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 70
+          },
+          {
+            "skill": "CONSTRUCTION",
+            "level": 70
+          },
+          {
+            "skill": "FARMING",
+            "level": 70
+          },
+          {
+            "skill": "HERBLORE",
+            "level": 70
+          },
+          {
+            "skill": "HUNTER",
+            "level": 70
+          },
+          {
+            "skill": "MINING",
+            "level": 70
+          },
+          {
+            "skill": "SMITHING",
+            "level": 70
+          },
+          {
+            "skill": "WOODCUTTING",
+            "level": 70
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 20000
+        },
+        {
+          "skill": "CONSTRUCTION",
+          "xp": 20000
+        },
+        {
+          "skill": "FARMING",
+          "xp": 20000
+        },
+        {
+          "skill": "HERBLORE",
+          "xp": 20000
+        },
+        {
+          "skill": "HUNTER",
+          "xp": 20000
+        },
+        {
+          "skill": "MINING",
+          "xp": 20000
+        },
+        {
+          "skill": "SMITHING",
+          "xp": 20000
+        },
+        {
+          "skill": "WOODCUTTING",
+          "xp": 20000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Song_of_the_Elves"
+      }
+    },
+    {
+      "id": "SPIRITS_OF_THE_ELID",
+      "name": "Spirits of the Elid",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "MAGIC",
+            "level": 33
+          },
+          {
+            "skill": "RANGED",
+            "level": 37
+          },
+          {
+            "skill": "MINING",
+            "level": 37
+          },
+          {
+            "skill": "THIEVING",
+            "level": 37
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "MAGIC",
+          "xp": 1000
+        },
+        {
+          "skill": "PRAYER",
+          "xp": 8000
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 1000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Spirits_of_the_Elid"
+      }
+    },
+    {
+      "id": "SWAN_SONG",
+      "name": "Swan Song",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "One Small Favour",
+          "Garden of Tranquillity"
+        ],
+        "skills": [
+          {
+            "skill": "MAGIC",
+            "level": 66
+          },
+          {
+            "skill": "COOKING",
+            "level": 62
+          },
+          {
+            "skill": "FISHING",
+            "level": 62
+          },
+          {
+            "skill": "SMITHING",
+            "level": 45
+          },
+          {
+            "skill": "FIREMAKING",
+            "level": 42
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 40
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "FISHING",
+          "xp": 10000
+        },
+        {
+          "skill": "MAGIC",
+          "xp": 15000
+        },
+        {
+          "skill": "PRAYER",
+          "xp": 10000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Swan_Song"
+      }
+    },
+    {
+      "id": "TAI_BWO_WANNAI_TRIO",
+      "name": "Tai Bwo Wannai Trio",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 15
+          },
+          {
+            "skill": "COOKING",
+            "level": 30
+          },
+          {
+            "skill": "FISHING",
+            "level": 5
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "ATTACK",
+          "xp": 2500
+        },
+        {
+          "skill": "COOKING",
+          "xp": 5000
+        },
+        {
+          "skill": "FISHING",
+          "xp": 5000
+        },
+        {
+          "skill": "STRENGTH",
+          "xp": 2500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Tai_Bwo_Wannai_Trio"
+      }
+    },
+    {
+      "id": "TALE_OF_THE_RIGHTEOUS",
+      "name": "Tale of the Righteous",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Client of Kourend"
+        ],
+        "skills": [
+          {
+            "skill": "STRENGTH",
+            "level": 16
+          },
+          {
+            "skill": "MINING",
+            "level": 10
+          }
+        ]
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Tale_of_the_Righteous"
+      }
+    },
+    {
+      "id": "TEARS_OF_GUTHIX",
+      "name": "Tears of Guthix",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "FIREMAKING",
+            "level": 49
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 20
+          },
+          {
+            "skill": "MINING",
+            "level": 20
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 1000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Tears_of_Guthix_(quest)"
+      }
+    },
+    {
+      "id": "TEMPLE_OF_IKOV",
+      "name": "Temple of Ikov",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "THIEVING",
+            "level": 42
+          },
+          {
+            "skill": "RANGED",
+            "level": 40
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "FLETCHING",
+          "xp": 8000
+        },
+        {
+          "skill": "RANGED",
+          "xp": 10500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Temple_of_Ikov"
+      }
+    },
+    {
+      "id": "THE_ASCENT_OF_ARCEUUS",
+      "name": "The Ascent of Arceuus",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Client of Kourend"
+        ],
+        "skills": [
+          {
+            "skill": "HUNTER",
+            "level": 12
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "HUNTER",
+          "xp": 1500
+        },
+        {
+          "skill": "RUNECRAFT",
+          "xp": 500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Ascent_of_Arceuus"
+      }
+    },
+    {
+      "id": "THE_CORSAIR_CURSE",
+      "name": "The Corsair Curse",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Corsair_Curse"
+      }
+    },
+    {
+      "id": "THE_DEPTHS_OF_DESPAIR",
+      "name": "The Depths of Despair",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Client of Kourend"
+        ],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 18
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 1500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Depths_of_Despair"
+      }
+    },
+    {
+      "id": "THE_DIG_SITE",
+      "name": "The Dig Site",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 10
+          },
+          {
+            "skill": "HERBLORE",
+            "level": 10
+          },
+          {
+            "skill": "THIEVING",
+            "level": 25
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "HERBLORE",
+          "xp": 2000
+        },
+        {
+          "skill": "MINING",
+          "xp": 15300
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Dig_Site"
+      }
+    },
+    {
+      "id": "THE_EYES_OF_GLOUPHRIE",
+      "name": "The Eyes of Glouphrie",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CONSTRUCTION",
+            "level": 5
+          },
+          {
+            "skill": "MAGIC",
+            "level": 46
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CONSTRUCTION",
+          "xp": 250
+        },
+        {
+          "skill": "MAGIC",
+          "xp": 12000
+        },
+        {
+          "skill": "RUNECRAFT",
+          "xp": 6000
+        },
+        {
+          "skill": "WOODCUTTING",
+          "xp": 2500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Eyes_of_Glouphrie"
+      }
+    },
+    {
+      "id": "THE_FEUD",
+      "name": "The Feud",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "THIEVING",
+            "level": 30
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "THIEVING",
+          "xp": 15000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Feud"
+      }
+    },
+    {
+      "id": "THE_FORSAKEN_TOWER",
+      "name": "The Forsaken Tower",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "MINING",
+          "xp": 500
+        },
+        {
+          "skill": "SMITHING",
+          "xp": 500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Forsaken_Tower"
+      }
+    },
+    {
+      "id": "THE_FREMENNIK_EXILES",
+      "name": "The Fremennik Exiles",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "The Fremennik Isles",
+          "Lunar Diplomacy",
+          "Mountain Daughter",
+          "Heroes' Quest"
+        ],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 65
+          },
+          {
+            "skill": "SLAYER",
+            "level": 60
+          },
+          {
+            "skill": "SMITHING",
+            "level": 60
+          },
+          {
+            "skill": "FISHING",
+            "level": 60
+          },
+          {
+            "skill": "RUNECRAFT",
+            "level": 55
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 15000
+        },
+        {
+          "skill": "RUNECRAFT",
+          "xp": 5000
+        },
+        {
+          "skill": "SLAYER",
+          "xp": 15000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Fremennik_Exiles"
+      }
+    },
+    {
+      "id": "THE_FREMENNIK_ISLES",
+      "name": "The Fremennik Isles",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CONSTRUCTION",
+            "level": 20
+          },
+          {
+            "skill": "AGILITY",
+            "level": 40
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CONSTRUCTION",
+          "xp": 5000
+        },
+        {
+          "skill": "CRAFTING",
+          "xp": 5000
+        },
+        {
+          "skill": "WOODCUTTING",
+          "xp": 10000
+        }
+      ],
+      "choiceRewards": [
+        {
+          "choiceGroup": "THE_FREMENNIK_ISLES_REWARD",
+          "xp": 10000,
+          "count": 2,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Fremennik_Isles"
+      }
+    },
+    {
+      "id": "THE_FREMENNIK_TRIALS",
+      "name": "The Fremennik Trials",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 2812
+        },
+        {
+          "skill": "ATTACK",
+          "xp": 2812
+        },
+        {
+          "skill": "CRAFTING",
+          "xp": 2812
+        },
+        {
+          "skill": "DEFENCE",
+          "xp": 2812
+        },
+        {
+          "skill": "FISHING",
+          "xp": 2812
+        },
+        {
+          "skill": "FLETCHING",
+          "xp": 2812
+        },
+        {
+          "skill": "HITPOINTS",
+          "xp": 2812
+        },
+        {
+          "skill": "STRENGTH",
+          "xp": 2812
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 2812
+        },
+        {
+          "skill": "WOODCUTTING",
+          "xp": 2812
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Fremennik_Trials"
+      }
+    },
+    {
+      "id": "THE_GIANT_DWARF",
+      "name": "The Giant Dwarf",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 12
+          },
+          {
+            "skill": "FIREMAKING",
+            "level": 16
+          },
+          {
+            "skill": "MAGIC",
+            "level": 33
+          },
+          {
+            "skill": "THIEVING",
+            "level": 14
+          },
+          {
+            "skill": "MINING",
+            "level": 20
+          },
+          {
+            "skill": "SMITHING",
+            "level": 20
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 2500
+        },
+        {
+          "skill": "FIREMAKING",
+          "xp": 1500
+        },
+        {
+          "skill": "MAGIC",
+          "xp": 1500
+        },
+        {
+          "skill": "MINING",
+          "xp": 2500
+        },
+        {
+          "skill": "SMITHING",
+          "xp": 2500
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 1500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Giant_Dwarf"
+      }
+    },
+    {
+      "id": "THE_GOLEM",
+      "name": "The Golem",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 20
+          },
+          {
+            "skill": "THIEVING",
+            "level": 25
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 1000
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 1000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Golem"
+      }
+    },
+    {
+      "id": "THE_GRAND_TREE",
+      "name": "The Grand Tree",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 5,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 25
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 7900
+        },
+        {
+          "skill": "ATTACK",
+          "xp": 18400
+        },
+        {
+          "skill": "MAGIC",
+          "xp": 2150
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Grand_Tree"
+      }
+    },
+    {
+      "id": "THE_GREAT_BRAIN_ROBBERY",
+      "name": "The Great Brain Robbery",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Creature of Fenkenstrain",
+          "Cabin Fever",
+          "Recipe for Disaster"
+        ],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 16
+          },
+          {
+            "skill": "CONSTRUCTION",
+            "level": 30
+          },
+          {
+            "skill": "PRAYER",
+            "level": 50
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CONSTRUCTION",
+          "xp": 2000
+        },
+        {
+          "skill": "CRAFTING",
+          "xp": 3000
+        },
+        {
+          "skill": "PRAYER",
+          "xp": 6000
+        }
+      ],
+      "choiceRewards": [
+        {
+          "choiceGroup": "THE_GREAT_BRAIN_ROBBERY_REWARD",
+          "xp": 5000,
+          "count": 1,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Great_Brain_Robbery"
+      }
+    },
+    {
+      "id": "THE_HAND_IN_THE_SAND",
+      "name": "The Hand in the Sand",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 9000
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 1000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Hand_in_the_Sand"
+      }
+    },
+    {
+      "id": "THE_KNIGHTS_SWORD",
+      "name": "The Knight's Sword",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "MINING",
+            "level": 10
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "SMITHING",
+          "xp": 12725
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Knight%27s_Sword"
+      }
+    },
+    {
+      "id": "THE_LOST_TRIBE",
+      "name": "The Lost Tribe",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 13
+          },
+          {
+            "skill": "THIEVING",
+            "level": 13
+          },
+          {
+            "skill": "MINING",
+            "level": 17
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "MINING",
+          "xp": 3000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Lost_Tribe"
+      }
+    },
+    {
+      "id": "THE_QUEEN_OF_THIEVES",
+      "name": "The Queen of Thieves",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Client of Kourend"
+        ],
+        "skills": [
+          {
+            "skill": "THIEVING",
+            "level": 20
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "THIEVING",
+          "xp": 2000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Queen_of_Thieves"
+      }
+    },
+    {
+      "id": "THE_RESTLESS_GHOST",
+      "name": "The Restless Ghost",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "PRAYER",
+          "xp": 1125
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Restless_Ghost"
+      }
+    },
+    {
+      "id": "SINS_OF_THE_FATHER",
+      "name": "Sins of the Father",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Vampyre Slayer",
+          "A Taste of Hope",
+          "Darkness of Hallowvale",
+          "In Aid of the Myreque",
+          "In Search of the Myreque",
+          "Nature Spirit",
+          "Priest in Peril",
+          "The Restless Ghost"
+        ],
+        "skills": [
+          {
+            "skill": "WOODCUTTING",
+            "level": 62
+          },
+          {
+            "skill": "FLETCHING",
+            "level": 60
+          },
+          {
+            "skill": "CRAFTING",
+            "level": 56
+          },
+          {
+            "skill": "AGILITY",
+            "level": 52
+          },
+          {
+            "skill": "ATTACK",
+            "level": 50
+          },
+          {
+            "skill": "SLAYER",
+            "level": 50
+          },
+          {
+            "skill": "MAGIC",
+            "level": 49
+          }
+        ]
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "SINS_OF_THE_FATHER_REWARD",
+          "xp": 15000,
+          "count": 6,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Sins_of_the_Father"
+      }
+    },
+    {
+      "id": "THE_SLUG_MENACE",
+      "name": "The Slug Menace",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CRAFTING",
+            "level": 30
+          },
+          {
+            "skill": "RUNECRAFT",
+            "level": 30
+          },
+          {
+            "skill": "SLAYER",
+            "level": 30
+          },
+          {
+            "skill": "THIEVING",
+            "level": 30
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CRAFTING",
+          "xp": 3500
+        },
+        {
+          "skill": "RUNECRAFT",
+          "xp": 3500
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 3500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Slug_Menace"
+      }
+    },
+    {
+      "id": "THE_TOURIST_TRAP",
+      "name": "The Tourist Trap",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "FLETCHING",
+            "level": 10
+          },
+          {
+            "skill": "SMITHING",
+            "level": 20
+          }
+        ]
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "THE_TOURIST_TRAP_REWARD",
+          "xp": 4650,
+          "count": 2,
+          "options": [
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "THIEVING"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Tourist_Trap"
+      }
+    },
+    {
+      "id": "THRONE_OF_MISCELLANIA",
+      "name": "Throne of Miscellania",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "WOODCUTTING",
+            "level": 45
+          },
+          {
+            "skill": "FARMING",
+            "level": 10
+          },
+          {
+            "skill": "MINING",
+            "level": 30
+          },
+          {
+            "skill": "FISHING",
+            "level": 35
+          }
+        ]
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Throne_of_Miscellania"
+      }
+    },
+    {
+      "id": "TOWER_OF_LIFE",
+      "name": "Tower of Life",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "CONSTRUCTION",
+            "level": 10
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "CONSTRUCTION",
+          "xp": 1000
+        },
+        {
+          "skill": "CRAFTING",
+          "xp": 500
+        },
+        {
+          "skill": "THIEVING",
+          "xp": 500
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Tower_of_Life"
+      }
+    },
+    {
+      "id": "TREE_GNOME_VILLAGE",
+      "name": "Tree Gnome Village",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "ATTACK",
+          "xp": 11450
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Tree_Gnome_Village"
+      }
+    },
+    {
+      "id": "TRIBAL_TOTEM",
+      "name": "Tribal Totem",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "THIEVING",
+            "level": 21
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "THIEVING",
+          "xp": 1775
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Tribal_Totem"
+      }
+    },
+    {
+      "id": "TROLL_ROMANCE",
+      "name": "Troll Romance",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [
+          "Troll Stronghold"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 8000
+        },
+        {
+          "skill": "STRENGTH",
+          "xp": 4000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Troll_Romance"
+      }
+    },
+    {
+      "id": "TROLL_STRONGHOLD",
+      "name": "Troll Stronghold",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "AGILITY",
+            "level": 15
+          }
+        ]
+      },
+      "fixedRewards": [],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Troll_Stronghold"
+      }
+    },
+    {
+      "id": "UNDERGROUND_PASS",
+      "name": "Underground Pass",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 5,
+      "prerequisites": {
+        "quests": [
+          "Biohazard"
+        ],
+        "skills": [
+          {
+            "skill": "RANGED",
+            "level": 25
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "AGILITY",
+          "xp": 3000
+        },
+        {
+          "skill": "ATTACK",
+          "xp": 3000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Underground_Pass"
+      }
+    },
+    {
+      "id": "VAMPYRE_SLAYER",
+      "name": "Vampyre Slayer",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "ATTACK",
+          "xp": 4825
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Vampyre_Slayer"
+      }
+    },
+    {
+      "id": "WANTED",
+      "name": "Wanted!",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Recruitment Drive",
+          "Rune Mysteries",
+          "The Lost Tribe",
+          "Priest in Peril"
+        ],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "SLAYER",
+          "xp": 5000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Wanted!"
+      }
+    },
+    {
+      "id": "WATCHTOWER",
+      "name": "Watchtower",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 4,
+      "prerequisites": {
+        "quests": [],
+        "skills": [
+          {
+            "skill": "MAGIC",
+            "level": 15
+          },
+          {
+            "skill": "THIEVING",
+            "level": 15
+          },
+          {
+            "skill": "AGILITY",
+            "level": 25
+          },
+          {
+            "skill": "HERBLORE",
+            "level": 14
+          },
+          {
+            "skill": "MINING",
+            "level": 40
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "MAGIC",
+          "xp": 15250
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Watchtower"
+      }
+    },
+    {
+      "id": "WATERFALL_QUEST",
+      "name": "Waterfall Quest",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "ATTACK",
+          "xp": 13750
+        },
+        {
+          "skill": "STRENGTH",
+          "xp": 13750
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Waterfall_Quest"
+      }
+    },
+    {
+      "id": "WHAT_LIES_BELOW",
+      "name": "What Lies Below",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "DEFENCE",
+          "xp": 2000
+        },
+        {
+          "skill": "RUNECRAFT",
+          "xp": 8000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/What_Lies_Below"
+      }
+    },
+    {
+      "id": "WITCHS_HOUSE",
+      "name": "Witch's House",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 4,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "HITPOINTS",
+          "xp": 6325
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Witch%27s_House"
+      }
+    },
+    {
+      "id": "WITCHS_POTION",
+      "name": "Witch's Potion",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [
+        {
+          "skill": "MAGIC",
+          "xp": 325
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Witch%27s_Potion"
+      }
+    },
+    {
+      "id": "X_MARKS_THE_SPOT",
+      "name": "X Marks the Spot",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "X_MARKS_THE_SPOT_LAMP",
+          "options": [
+            {
+              "skill": "ATTACK",
+              "xp": 300
+            },
+            {
+              "skill": "STRENGTH",
+              "xp": 300
+            },
+            {
+              "skill": "DEFENCE",
+              "xp": 300
+            },
+            {
+              "skill": "HITPOINTS",
+              "xp": 300
+            },
+            {
+              "skill": "RANGED",
+              "xp": 300
+            },
+            {
+              "skill": "MAGIC",
+              "xp": 300
+            },
+            {
+              "skill": "PRAYER",
+              "xp": 300
+            },
+            {
+              "skill": "COOKING",
+              "xp": 300
+            },
+            {
+              "skill": "WOODCUTTING",
+              "xp": 300
+            },
+            {
+              "skill": "FISHING",
+              "xp": 300
+            },
+            {
+              "skill": "FLETCHING",
+              "xp": 300
+            },
+            {
+              "skill": "CRAFTING",
+              "xp": 300
+            },
+            {
+              "skill": "SMITHING",
+              "xp": 300
+            },
+            {
+              "skill": "MINING",
+              "xp": 300
+            },
+            {
+              "skill": "FIREMAKING",
+              "xp": 300
+            },
+            {
+              "skill": "RUNECRAFT",
+              "xp": 300
+            },
+            {
+              "skill": "HERBLORE",
+              "xp": 300
+            },
+            {
+              "skill": "AGILITY",
+              "xp": 300
+            },
+            {
+              "skill": "THIEVING",
+              "xp": 300
+            },
+            {
+              "skill": "SLAYER",
+              "xp": 300
+            },
+            {
+              "skill": "FARMING",
+              "xp": 300
+            },
+            {
+              "skill": "CONSTRUCTION",
+              "xp": 300
+            },
+            {
+              "skill": "HUNTER",
+              "xp": 300
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false,
+        "choiceRewardsCurated": true
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/X_Marks_the_Spot"
+      }
+    },
+    {
+      "id": "ZOGRE_FLESH_EATERS",
+      "name": "Zogre Flesh Eaters",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Intermediate",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [
+          "Big Chompy Bird Hunting",
+          "Jungle Potion"
+        ],
+        "skills": [
+          {
+            "skill": "SMITHING",
+            "level": 4
+          },
+          {
+            "skill": "HERBLORE",
+            "level": 8
+          },
+          {
+            "skill": "RANGED",
+            "level": 30
+          },
+          {
+            "skill": "FLETCHING",
+            "level": 30
+          },
+          {
+            "skill": "STRENGTH",
+            "level": 10
+          },
+          {
+            "skill": "PRAYER",
+            "level": 43
+          }
+        ]
+      },
+      "fixedRewards": [
+        {
+          "skill": "FLETCHING",
+          "xp": 2000
+        },
+        {
+          "skill": "HERBLORE",
+          "xp": 2000
+        },
+        {
+          "skill": "RANGED",
+          "xp": 2000
+        }
+      ],
+      "choiceRewards": [],
+      "flags": {
+        "unavoidableCombatXp": true,
+        "hasUnmodeledChoiceRewards": false
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Zogre_Flesh_Eaters"
+      }
+    },
+    {
+      "id": "THE_IDES_OF_MILK",
+      "name": "The Ides of Milk",
+      "members": false,
+      "miniquest": false,
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "THE_IDES_OF_MILK_REWARD",
+          "xp": 1000,
+          "count": 1,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "PRAYER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false,
+        "choiceRewardsCurated": true
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Ides_of_Milk"
+      }
+    },
+    {
+      "id": "A_KINGDOM_DIVIDED",
+      "name": "A Kingdom Divided",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Experienced",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "A_KINGDOM_DIVIDED_REWARD",
+          "xp": 10000,
+          "count": 2,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false,
+        "choiceRewardsCurated": true
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/A_Kingdom_Divided"
+      }
+    },
+    {
+      "id": "IN_SEARCH_OF_KNOWLEDGE",
+      "name": "In Search of Knowledge",
+      "members": true,
+      "miniquest": true,
+      "difficulty": "Experienced",
+      "questPoints": 0,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "IN_SEARCH_OF_KNOWLEDGE_REWARD",
+          "xp": 10000,
+          "count": 1,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false,
+        "choiceRewardsCurated": true
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/In_Search_of_Knowledge"
+      }
+    },
+    {
+      "id": "CURSE_OF_THE_EMPTY_LORD",
+      "name": "Curse of the Empty Lord",
+      "members": true,
+      "miniquest": true,
+      "difficulty": "Experienced",
+      "questPoints": 0,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "CURSE_OF_THE_EMPTY_LORD_REWARD",
+          "xp": 10000,
+          "count": 1,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            },
+            {
+              "skill": "COOKING"
+            },
+            {
+              "skill": "WOODCUTTING"
+            },
+            {
+              "skill": "FISHING"
+            },
+            {
+              "skill": "FLETCHING"
+            },
+            {
+              "skill": "CRAFTING"
+            },
+            {
+              "skill": "SMITHING"
+            },
+            {
+              "skill": "MINING"
+            },
+            {
+              "skill": "FIREMAKING"
+            },
+            {
+              "skill": "RUNECRAFT"
+            },
+            {
+              "skill": "HERBLORE"
+            },
+            {
+              "skill": "AGILITY"
+            },
+            {
+              "skill": "THIEVING"
+            },
+            {
+              "skill": "SLAYER"
+            },
+            {
+              "skill": "FARMING"
+            },
+            {
+              "skill": "CONSTRUCTION"
+            },
+            {
+              "skill": "HUNTER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false,
+        "choiceRewardsCurated": true
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Curse_of_the_Empty_Lord"
+      }
+    },
+    {
+      "id": "A_NIGHT_AT_THE_THEATRE",
+      "name": "A Night at the Theatre",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 2,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "A_NIGHT_AT_THE_THEATRE_REWARD",
+          "xp": 20000,
+          "count": 4,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false,
+        "choiceRewardsCurated": true
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/A_Night_at_the_Theatre"
+      }
+    },
+    {
+      "id": "INTO_THE_TOMBS",
+      "name": "Into the Tombs",
+      "members": true,
+      "miniquest": true,
+      "difficulty": "Master",
+      "questPoints": 0,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "INTO_THE_TOMBS_REWARD",
+          "xp": 50000,
+          "count": 1,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false,
+        "choiceRewardsCurated": true
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Into_the_Tombs"
+      }
+    },
+    {
+      "id": "THE_FINAL_DAWN",
+      "name": "The Final Dawn",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Master",
+      "questPoints": 3,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "THE_FINAL_DAWN_REWARD",
+          "xp": 55000,
+          "count": 1,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false,
+        "choiceRewardsCurated": true
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/The_Final_Dawn"
+      }
+    },
+    {
+      "id": "DESERT_TREASURE_I_I_THE_FALLEN_EMPIRE",
+      "name": "Desert Treasure II - The Fallen Empire",
+      "members": true,
+      "miniquest": false,
+      "difficulty": "Grandmaster",
+      "questPoints": 5,
+      "prerequisites": {
+        "quests": [],
+        "skills": []
+      },
+      "fixedRewards": [],
+      "choiceRewards": [
+        {
+          "choiceGroup": "DESERT_TREASURE_II_REWARD",
+          "xp": 100000,
+          "count": 3,
+          "options": [
+            {
+              "skill": "ATTACK"
+            },
+            {
+              "skill": "STRENGTH"
+            },
+            {
+              "skill": "DEFENCE"
+            },
+            {
+              "skill": "HITPOINTS"
+            },
+            {
+              "skill": "RANGED"
+            },
+            {
+              "skill": "MAGIC"
+            },
+            {
+              "skill": "PRAYER"
+            }
+          ]
+        }
+      ],
+      "flags": {
+        "unavoidableCombatXp": false,
+        "hasUnmodeledChoiceRewards": false,
+        "choiceRewardsCurated": true
+      },
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Desert_Treasure_II_-_The_Fallen_Empire"
+      }
+    }
+  ]
+}

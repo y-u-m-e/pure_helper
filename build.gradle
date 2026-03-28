@@ -3,7 +3,8 @@ plugins {
 }
 
 repositories {
-	mavenLocal()
+	// repo.runelite.net first for net.runelite; Maven Central next so org.lwjgl resolves
+	// before ~/.m2 (a broken LWJGL tree in mavenLocal() causes missing natives-* errors on :run).
 	maven {
 		url = 'https://repo.runelite.net'
 		content {
@@ -11,23 +12,23 @@ repositories {
 		}
 	}
 	mavenCentral()
+	mavenLocal()
 }
 
 def runeLiteVersion = 'latest.release'
-def pluginMainClass = 'com.example.ExamplePluginTest'
+def pluginMainClass = 'com.yumesplugins.purehelper.PureHelperPluginTest'
 
 dependencies {
-	compileOnly group: 'net.runelite', name:'client', version: runeLiteVersion
+	compileOnly group: 'net.runelite', name: 'client', version: runeLiteVersion
 
 	compileOnly 'org.projectlombok:lombok:1.18.30'
 	annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
 	testImplementation 'junit:junit:4.12'
-	testImplementation group: 'net.runelite', name:'client', version: runeLiteVersion
-	testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
+	testImplementation group: 'net.runelite', name: 'client', version: runeLiteVersion
 }
 
-group = 'com.example'
+group = 'com.yumesplugins.purehelper'
 version = '1.0-SNAPSHOT'
 
 tasks.withType(JavaCompile).configureEach {
@@ -40,7 +41,7 @@ tasks.register('run', JavaExec) {
 	mainClass = pluginMainClass
 
 	jvmArgs "-ea"
-	args "--developer-mode", "--debug"
+	args "--developer-mode"
 }
 
 tasks.register('shadowJar', Jar) {

@@ -1,0 +1,1544 @@
+{
+  "version": 1,
+  "schema": "pure-helper.achievement-diary-rules.v1",
+  "lastUpdated": "2026-03-21",
+  "coverage": {
+    "target": "FULL_DIARY_REWARD_COVERAGE",
+    "status": "FULL_COVERAGE_MANUALLY_CURATED",
+    "diariesCovered": 12,
+    "tiersCovered": 48,
+    "tiersWithChoiceRewards": 9,
+    "notes": "Covers all 12 achievement diaries and all four tiers (Easy/Medium/Hard/Elite). Choice reward lamps are modeled from Achievement Diary/Rewards page."
+  },
+  "defaultPolicy": {
+    "choiceRewards": "SAFE_UNLESS_UNAVOIDABLE",
+    "lockedDiaryBehavior": "SHOW_LOCKED_WITH_REASON"
+  },
+  "notes": [
+    "Diary reward XP lamps are represented in choiceRewards with minSkillLevel gating.",
+    "Many diaries do not provide direct XP lamps for all tiers; those tiers intentionally have empty choiceRewards.",
+    "This file focuses on reward XP risk modeling, not task-by-task completion requirements.",
+    "Diary tier requiredQuests are modeled from each diary wiki page requirements blocks."
+  ],
+  "skills": [
+    "ATTACK",
+    "STRENGTH",
+    "DEFENCE",
+    "HITPOINTS",
+    "RANGED",
+    "MAGIC",
+    "PRAYER",
+    "COOKING",
+    "WOODCUTTING",
+    "FISHING",
+    "FLETCHING",
+    "CRAFTING",
+    "SMITHING",
+    "MINING",
+    "FIREMAKING",
+    "RUNECRAFT",
+    "HERBLORE",
+    "AGILITY",
+    "THIEVING",
+    "SLAYER",
+    "FARMING",
+    "CONSTRUCTION",
+    "HUNTER"
+  ],
+  "diaries": [
+    {
+      "id": "ARDOUGNE",
+      "name": "Ardougne",
+      "tiers": [
+        {
+          "tier": "EASY",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Biohazard",
+            "Rune Mysteries"
+          ]
+        },
+        {
+          "tier": "MEDIUM",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Enlightened Journey",
+            "Rune Mysteries",
+            "The Hand in the Sand",
+            "Tower of Life",
+            "Underground Pass"
+          ]
+        },
+        {
+          "tier": "HARD",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Enlightened Journey",
+            "Legends' Quest",
+            "Monkey Madness I",
+            "Mourning's End Part II",
+            "Rune Mysteries",
+            "The Hand in the Sand",
+            "Tower of Life",
+            "Watchtower"
+          ]
+        },
+        {
+          "tier": "ELITE",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Enlightened Journey",
+            "Haunted Mine",
+            "Legends' Quest",
+            "Monkey Madness I",
+            "Mourning's End Part II",
+            "Rune Mysteries",
+            "The Hand in the Sand",
+            "Tower of Life",
+            "Watchtower"
+          ]
+        }
+      ],
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Ardougne_Diary"
+      }
+    },
+    {
+      "id": "DESERT",
+      "name": "Desert",
+      "tiers": [
+        {
+          "tier": "EASY",
+          "fixedRewards": [],
+          "choiceRewards": [
+            {
+              "choiceGroup": "DESERT_EASY_LAMP",
+              "xp": 2500,
+              "count": 1,
+              "minSkillLevel": 30,
+              "options": [
+                {
+                  "skill": "ATTACK"
+                },
+                {
+                  "skill": "STRENGTH"
+                },
+                {
+                  "skill": "DEFENCE"
+                },
+                {
+                  "skill": "HITPOINTS"
+                },
+                {
+                  "skill": "RANGED"
+                },
+                {
+                  "skill": "MAGIC"
+                },
+                {
+                  "skill": "PRAYER"
+                },
+                {
+                  "skill": "COOKING"
+                },
+                {
+                  "skill": "WOODCUTTING"
+                },
+                {
+                  "skill": "FISHING"
+                },
+                {
+                  "skill": "FLETCHING"
+                },
+                {
+                  "skill": "CRAFTING"
+                },
+                {
+                  "skill": "SMITHING"
+                },
+                {
+                  "skill": "MINING"
+                },
+                {
+                  "skill": "FIREMAKING"
+                },
+                {
+                  "skill": "RUNECRAFT"
+                },
+                {
+                  "skill": "HERBLORE"
+                },
+                {
+                  "skill": "AGILITY"
+                },
+                {
+                  "skill": "THIEVING"
+                },
+                {
+                  "skill": "SLAYER"
+                },
+                {
+                  "skill": "FARMING"
+                },
+                {
+                  "skill": "CONSTRUCTION"
+                },
+                {
+                  "skill": "HUNTER"
+                }
+              ]
+            }
+          ],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": true
+          },
+          "requiredQuests": [
+            "Eagles' Peak",
+            "Enakhra's Lament",
+            "Spirits of the Elid",
+            "The Golem"
+          ]
+        },
+        {
+          "tier": "MEDIUM",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Contact!",
+            "Dream Mentor",
+            "Eagles' Peak",
+            "Enakhra's Lament",
+            "Spirits of the Elid",
+            "The Feud",
+            "The Golem"
+          ]
+        },
+        {
+          "tier": "HARD",
+          "fixedRewards": [],
+          "choiceRewards": [
+            {
+              "choiceGroup": "DESERT_HARD_LAMP",
+              "xp": 15000,
+              "count": 1,
+              "minSkillLevel": 50,
+              "options": [
+                {
+                  "skill": "ATTACK"
+                },
+                {
+                  "skill": "STRENGTH"
+                },
+                {
+                  "skill": "DEFENCE"
+                },
+                {
+                  "skill": "HITPOINTS"
+                },
+                {
+                  "skill": "RANGED"
+                },
+                {
+                  "skill": "MAGIC"
+                },
+                {
+                  "skill": "PRAYER"
+                },
+                {
+                  "skill": "COOKING"
+                },
+                {
+                  "skill": "WOODCUTTING"
+                },
+                {
+                  "skill": "FISHING"
+                },
+                {
+                  "skill": "FLETCHING"
+                },
+                {
+                  "skill": "CRAFTING"
+                },
+                {
+                  "skill": "SMITHING"
+                },
+                {
+                  "skill": "MINING"
+                },
+                {
+                  "skill": "FIREMAKING"
+                },
+                {
+                  "skill": "RUNECRAFT"
+                },
+                {
+                  "skill": "HERBLORE"
+                },
+                {
+                  "skill": "AGILITY"
+                },
+                {
+                  "skill": "THIEVING"
+                },
+                {
+                  "skill": "SLAYER"
+                },
+                {
+                  "skill": "FARMING"
+                },
+                {
+                  "skill": "CONSTRUCTION"
+                },
+                {
+                  "skill": "HUNTER"
+                }
+              ]
+            }
+          ],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": true
+          },
+          "requiredQuests": [
+            "Contact!",
+            "Dream Mentor",
+            "Eagles' Peak",
+            "Enakhra's Lament",
+            "Spirits of the Elid",
+            "The Feud",
+            "The Golem"
+          ]
+        },
+        {
+          "tier": "ELITE",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": []
+        }
+      ],
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Desert_Diary"
+      }
+    },
+    {
+      "id": "FALADOR",
+      "name": "Falador",
+      "tiers": [
+        {
+          "tier": "EASY",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Doric's Quest",
+            "The Knight's Sword"
+          ]
+        },
+        {
+          "tier": "MEDIUM",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Doric's Quest",
+            "Recruitment Drive",
+            "The Knight's Sword"
+          ]
+        },
+        {
+          "tier": "HARD",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Doric's Quest",
+            "Grim Tales",
+            "Heroes' Quest",
+            "The Knight's Sword",
+            "The Slug Menace"
+          ]
+        },
+        {
+          "tier": "ELITE",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Doric's Quest",
+            "Grim Tales",
+            "Heroes' Quest",
+            "The Knight's Sword",
+            "The Slug Menace"
+          ]
+        }
+      ],
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Falador_Diary"
+      }
+    },
+    {
+      "id": "FREMENNIK",
+      "name": "Fremennik",
+      "tiers": [
+        {
+          "tier": "EASY",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "The Fremennik Trials"
+          ]
+        },
+        {
+          "tier": "MEDIUM",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Between a Rock...",
+            "Eagles' Peak",
+            "Horror from the Deep"
+          ]
+        },
+        {
+          "tier": "HARD",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Between a Rock...",
+            "Eadgar's Ruse",
+            "Eagles' Peak",
+            "Horror from the Deep",
+            "Lunar Diplomacy",
+            "Throne of Miscellania"
+          ]
+        },
+        {
+          "tier": "ELITE",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Between a Rock...",
+            "Eadgar's Ruse",
+            "Eagles' Peak",
+            "Horror from the Deep",
+            "Lunar Diplomacy",
+            "Throne of Miscellania"
+          ]
+        }
+      ],
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Fremennik_Diary"
+      }
+    },
+    {
+      "id": "KANDARIN",
+      "name": "Kandarin",
+      "tiers": [
+        {
+          "tier": "EASY",
+          "fixedRewards": [],
+          "choiceRewards": [
+            {
+              "choiceGroup": "KANDARIN_EASY_LAMP",
+              "xp": 2500,
+              "count": 1,
+              "minSkillLevel": 30,
+              "options": [
+                {
+                  "skill": "ATTACK"
+                },
+                {
+                  "skill": "STRENGTH"
+                },
+                {
+                  "skill": "DEFENCE"
+                },
+                {
+                  "skill": "HITPOINTS"
+                },
+                {
+                  "skill": "RANGED"
+                },
+                {
+                  "skill": "MAGIC"
+                },
+                {
+                  "skill": "PRAYER"
+                },
+                {
+                  "skill": "COOKING"
+                },
+                {
+                  "skill": "WOODCUTTING"
+                },
+                {
+                  "skill": "FISHING"
+                },
+                {
+                  "skill": "FLETCHING"
+                },
+                {
+                  "skill": "CRAFTING"
+                },
+                {
+                  "skill": "SMITHING"
+                },
+                {
+                  "skill": "MINING"
+                },
+                {
+                  "skill": "FIREMAKING"
+                },
+                {
+                  "skill": "RUNECRAFT"
+                },
+                {
+                  "skill": "HERBLORE"
+                },
+                {
+                  "skill": "AGILITY"
+                },
+                {
+                  "skill": "THIEVING"
+                },
+                {
+                  "skill": "SLAYER"
+                },
+                {
+                  "skill": "FARMING"
+                },
+                {
+                  "skill": "CONSTRUCTION"
+                },
+                {
+                  "skill": "HUNTER"
+                }
+              ]
+            }
+          ],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": true
+          },
+          "requiredQuests": [
+            "Waterfall Quest"
+          ]
+        },
+        {
+          "tier": "MEDIUM",
+          "fixedRewards": [],
+          "choiceRewards": [
+            {
+              "choiceGroup": "KANDARIN_MEDIUM_LAMP",
+              "xp": 7500,
+              "count": 1,
+              "minSkillLevel": 40,
+              "options": [
+                {
+                  "skill": "ATTACK"
+                },
+                {
+                  "skill": "STRENGTH"
+                },
+                {
+                  "skill": "DEFENCE"
+                },
+                {
+                  "skill": "HITPOINTS"
+                },
+                {
+                  "skill": "RANGED"
+                },
+                {
+                  "skill": "MAGIC"
+                },
+                {
+                  "skill": "PRAYER"
+                },
+                {
+                  "skill": "COOKING"
+                },
+                {
+                  "skill": "WOODCUTTING"
+                },
+                {
+                  "skill": "FISHING"
+                },
+                {
+                  "skill": "FLETCHING"
+                },
+                {
+                  "skill": "CRAFTING"
+                },
+                {
+                  "skill": "SMITHING"
+                },
+                {
+                  "skill": "MINING"
+                },
+                {
+                  "skill": "FIREMAKING"
+                },
+                {
+                  "skill": "RUNECRAFT"
+                },
+                {
+                  "skill": "HERBLORE"
+                },
+                {
+                  "skill": "AGILITY"
+                },
+                {
+                  "skill": "THIEVING"
+                },
+                {
+                  "skill": "SLAYER"
+                },
+                {
+                  "skill": "FARMING"
+                },
+                {
+                  "skill": "CONSTRUCTION"
+                },
+                {
+                  "skill": "HUNTER"
+                }
+              ]
+            }
+          ],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": true
+          },
+          "requiredQuests": []
+        },
+        {
+          "tier": "HARD",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Family Crest",
+            "Lunar Diplomacy"
+          ]
+        },
+        {
+          "tier": "ELITE",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": []
+        }
+      ],
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Kandarin_Diary"
+      }
+    },
+    {
+      "id": "KARAMJA",
+      "name": "Karamja",
+      "tiers": [
+        {
+          "tier": "EASY",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Shilo Village",
+            "The Grand Tree"
+          ]
+        },
+        {
+          "tier": "MEDIUM",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Tai Bwo Wannai Trio",
+            "The Grand Tree"
+          ]
+        },
+        {
+          "tier": "HARD",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Tai Bwo Wannai Trio",
+            "The Grand Tree"
+          ]
+        },
+        {
+          "tier": "ELITE",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": []
+        }
+      ],
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Karamja_Diary"
+      }
+    },
+    {
+      "id": "KOUREND_KEBOS",
+      "name": "Kourend & Kebos",
+      "tiers": [
+        {
+          "tier": "EASY",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Druidic Ritual"
+          ]
+        },
+        {
+          "tier": "MEDIUM",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Tale of the Righteous",
+            "The Ascent of Arceuus",
+            "The Depths of Despair",
+            "The Forsaken Tower",
+            "The Queen of Thieves"
+          ]
+        },
+        {
+          "tier": "HARD",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Dream Mentor",
+            "Tale of the Righteous",
+            "The Ascent of Arceuus",
+            "The Depths of Despair",
+            "The Forsaken Tower",
+            "The Queen of Thieves"
+          ]
+        },
+        {
+          "tier": "ELITE",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Dream Mentor",
+            "Tale of the Righteous",
+            "The Ascent of Arceuus",
+            "The Depths of Despair",
+            "The Forsaken Tower",
+            "The Queen of Thieves"
+          ]
+        }
+      ],
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Kourend_%26_Kebos_Diary"
+      }
+    },
+    {
+      "id": "LUMBRIDGE_DRAYNOR",
+      "name": "Lumbridge & Draynor",
+      "tiers": [
+        {
+          "tier": "EASY",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Cook's Assistant",
+            "Rune Mysteries"
+          ]
+        },
+        {
+          "tier": "MEDIUM",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Animal Magnetism",
+            "Cook's Assistant",
+            "Rune Mysteries"
+          ]
+        },
+        {
+          "tier": "HARD",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Animal Magnetism",
+            "Another Slice of H.A.M.",
+            "Recipe for Disaster",
+            "Rune Mysteries",
+            "Tears of Guthix"
+          ]
+        },
+        {
+          "tier": "ELITE",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": []
+        }
+      ],
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Lumbridge_%26_Draynor_Diary"
+      }
+    },
+    {
+      "id": "MORYTANIA",
+      "name": "Morytania",
+      "tiers": [
+        {
+          "tier": "EASY",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Nature Spirit"
+          ]
+        },
+        {
+          "tier": "MEDIUM",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Cabin Fever",
+            "Dwarf Cannon",
+            "Ghosts Ahoy"
+          ]
+        },
+        {
+          "tier": "HARD",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Dwarf Cannon",
+            "Ghosts Ahoy",
+            "In Aid of the Myreque"
+          ]
+        },
+        {
+          "tier": "ELITE",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Dwarf Cannon",
+            "Ghosts Ahoy",
+            "In Aid of the Myreque",
+            "Lunar Diplomacy",
+            "Shades of Mort'ton"
+          ]
+        }
+      ],
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Morytania_Diary"
+      }
+    },
+    {
+      "id": "VARROCK",
+      "name": "Varrock",
+      "tiers": [
+        {
+          "tier": "EASY",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Rune Mysteries"
+          ]
+        },
+        {
+          "tier": "MEDIUM",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "A Soul's Bane",
+            "Enlightened Journey",
+            "Garden of Tranquillity",
+            "Gertrude's Cat",
+            "Rune Mysteries",
+            "The Dig Site",
+            "Tree Gnome Village"
+          ]
+        },
+        {
+          "tier": "HARD",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "A Soul's Bane",
+            "Enlightened Journey",
+            "Garden of Tranquillity",
+            "Gertrude's Cat",
+            "Rune Mysteries",
+            "Tree Gnome Village"
+          ]
+        },
+        {
+          "tier": "ELITE",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "A Soul's Bane",
+            "Dream Mentor",
+            "Enlightened Journey",
+            "Garden of Tranquillity",
+            "Gertrude's Cat",
+            "Tree Gnome Village"
+          ]
+        }
+      ],
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Varrock_Diary"
+      }
+    },
+    {
+      "id": "WESTERN_PROVINCES",
+      "name": "Western Provinces",
+      "tiers": [
+        {
+          "tier": "EASY",
+          "fixedRewards": [],
+          "choiceRewards": [
+            {
+              "choiceGroup": "WESTERN_PROVINCES_EASY_LAMP",
+              "xp": 2500,
+              "count": 1,
+              "minSkillLevel": 30,
+              "options": [
+                {
+                  "skill": "ATTACK"
+                },
+                {
+                  "skill": "STRENGTH"
+                },
+                {
+                  "skill": "DEFENCE"
+                },
+                {
+                  "skill": "HITPOINTS"
+                },
+                {
+                  "skill": "RANGED"
+                },
+                {
+                  "skill": "MAGIC"
+                },
+                {
+                  "skill": "PRAYER"
+                },
+                {
+                  "skill": "COOKING"
+                },
+                {
+                  "skill": "WOODCUTTING"
+                },
+                {
+                  "skill": "FISHING"
+                },
+                {
+                  "skill": "FLETCHING"
+                },
+                {
+                  "skill": "CRAFTING"
+                },
+                {
+                  "skill": "SMITHING"
+                },
+                {
+                  "skill": "MINING"
+                },
+                {
+                  "skill": "FIREMAKING"
+                },
+                {
+                  "skill": "RUNECRAFT"
+                },
+                {
+                  "skill": "HERBLORE"
+                },
+                {
+                  "skill": "AGILITY"
+                },
+                {
+                  "skill": "THIEVING"
+                },
+                {
+                  "skill": "SLAYER"
+                },
+                {
+                  "skill": "FARMING"
+                },
+                {
+                  "skill": "CONSTRUCTION"
+                },
+                {
+                  "skill": "HUNTER"
+                }
+              ]
+            }
+          ],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": true
+          },
+          "requiredQuests": [
+            "Big Chompy Bird Hunting",
+            "Rune Mysteries"
+          ]
+        },
+        {
+          "tier": "MEDIUM",
+          "fixedRewards": [],
+          "choiceRewards": [
+            {
+              "choiceGroup": "WESTERN_PROVINCES_MEDIUM_LAMP",
+              "xp": 7500,
+              "count": 1,
+              "minSkillLevel": 40,
+              "options": [
+                {
+                  "skill": "ATTACK"
+                },
+                {
+                  "skill": "STRENGTH"
+                },
+                {
+                  "skill": "DEFENCE"
+                },
+                {
+                  "skill": "HITPOINTS"
+                },
+                {
+                  "skill": "RANGED"
+                },
+                {
+                  "skill": "MAGIC"
+                },
+                {
+                  "skill": "PRAYER"
+                },
+                {
+                  "skill": "COOKING"
+                },
+                {
+                  "skill": "WOODCUTTING"
+                },
+                {
+                  "skill": "FISHING"
+                },
+                {
+                  "skill": "FLETCHING"
+                },
+                {
+                  "skill": "CRAFTING"
+                },
+                {
+                  "skill": "SMITHING"
+                },
+                {
+                  "skill": "MINING"
+                },
+                {
+                  "skill": "FIREMAKING"
+                },
+                {
+                  "skill": "RUNECRAFT"
+                },
+                {
+                  "skill": "HERBLORE"
+                },
+                {
+                  "skill": "AGILITY"
+                },
+                {
+                  "skill": "THIEVING"
+                },
+                {
+                  "skill": "SLAYER"
+                },
+                {
+                  "skill": "FARMING"
+                },
+                {
+                  "skill": "CONSTRUCTION"
+                },
+                {
+                  "skill": "HUNTER"
+                }
+              ]
+            }
+          ],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": true
+          },
+          "requiredQuests": [
+            "Big Chompy Bird Hunting",
+            "Eagles' Peak",
+            "The Eyes of Glouphrie"
+          ]
+        },
+        {
+          "tier": "HARD",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Eagles' Peak",
+            "Recipe for Disaster",
+            "Swan Song",
+            "The Eyes of Glouphrie"
+          ]
+        },
+        {
+          "tier": "ELITE",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Eagles' Peak",
+            "Recipe for Disaster",
+            "Swan Song",
+            "The Eyes of Glouphrie"
+          ]
+        }
+      ],
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Western_Provinces_Diary"
+      }
+    },
+    {
+      "id": "WILDERNESS",
+      "name": "Wilderness",
+      "tiers": [
+        {
+          "tier": "EASY",
+          "fixedRewards": [],
+          "choiceRewards": [
+            {
+              "choiceGroup": "WILDERNESS_EASY_LAMP",
+              "xp": 2500,
+              "count": 1,
+              "minSkillLevel": 30,
+              "options": [
+                {
+                  "skill": "ATTACK"
+                },
+                {
+                  "skill": "STRENGTH"
+                },
+                {
+                  "skill": "DEFENCE"
+                },
+                {
+                  "skill": "HITPOINTS"
+                },
+                {
+                  "skill": "RANGED"
+                },
+                {
+                  "skill": "MAGIC"
+                },
+                {
+                  "skill": "PRAYER"
+                },
+                {
+                  "skill": "COOKING"
+                },
+                {
+                  "skill": "WOODCUTTING"
+                },
+                {
+                  "skill": "FISHING"
+                },
+                {
+                  "skill": "FLETCHING"
+                },
+                {
+                  "skill": "CRAFTING"
+                },
+                {
+                  "skill": "SMITHING"
+                },
+                {
+                  "skill": "MINING"
+                },
+                {
+                  "skill": "FIREMAKING"
+                },
+                {
+                  "skill": "RUNECRAFT"
+                },
+                {
+                  "skill": "HERBLORE"
+                },
+                {
+                  "skill": "AGILITY"
+                },
+                {
+                  "skill": "THIEVING"
+                },
+                {
+                  "skill": "SLAYER"
+                },
+                {
+                  "skill": "FARMING"
+                },
+                {
+                  "skill": "CONSTRUCTION"
+                },
+                {
+                  "skill": "HUNTER"
+                }
+              ]
+            }
+          ],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": true
+          },
+          "requiredQuests": [
+            "Enter the Abyss"
+          ]
+        },
+        {
+          "tier": "MEDIUM",
+          "fixedRewards": [],
+          "choiceRewards": [
+            {
+              "choiceGroup": "WILDERNESS_MEDIUM_LAMP",
+              "xp": 7500,
+              "count": 1,
+              "minSkillLevel": 40,
+              "options": [
+                {
+                  "skill": "ATTACK"
+                },
+                {
+                  "skill": "STRENGTH"
+                },
+                {
+                  "skill": "DEFENCE"
+                },
+                {
+                  "skill": "HITPOINTS"
+                },
+                {
+                  "skill": "RANGED"
+                },
+                {
+                  "skill": "MAGIC"
+                },
+                {
+                  "skill": "PRAYER"
+                },
+                {
+                  "skill": "COOKING"
+                },
+                {
+                  "skill": "WOODCUTTING"
+                },
+                {
+                  "skill": "FISHING"
+                },
+                {
+                  "skill": "FLETCHING"
+                },
+                {
+                  "skill": "CRAFTING"
+                },
+                {
+                  "skill": "SMITHING"
+                },
+                {
+                  "skill": "MINING"
+                },
+                {
+                  "skill": "FIREMAKING"
+                },
+                {
+                  "skill": "RUNECRAFT"
+                },
+                {
+                  "skill": "HERBLORE"
+                },
+                {
+                  "skill": "AGILITY"
+                },
+                {
+                  "skill": "THIEVING"
+                },
+                {
+                  "skill": "SLAYER"
+                },
+                {
+                  "skill": "FARMING"
+                },
+                {
+                  "skill": "CONSTRUCTION"
+                },
+                {
+                  "skill": "HUNTER"
+                }
+              ]
+            }
+          ],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": true
+          },
+          "requiredQuests": [
+            "Enter the Abyss"
+          ]
+        },
+        {
+          "tier": "HARD",
+          "fixedRewards": [],
+          "choiceRewards": [
+            {
+              "choiceGroup": "WILDERNESS_HARD_LAMP",
+              "xp": 15000,
+              "count": 1,
+              "minSkillLevel": 50,
+              "options": [
+                {
+                  "skill": "ATTACK"
+                },
+                {
+                  "skill": "STRENGTH"
+                },
+                {
+                  "skill": "DEFENCE"
+                },
+                {
+                  "skill": "HITPOINTS"
+                },
+                {
+                  "skill": "RANGED"
+                },
+                {
+                  "skill": "MAGIC"
+                },
+                {
+                  "skill": "PRAYER"
+                },
+                {
+                  "skill": "COOKING"
+                },
+                {
+                  "skill": "WOODCUTTING"
+                },
+                {
+                  "skill": "FISHING"
+                },
+                {
+                  "skill": "FLETCHING"
+                },
+                {
+                  "skill": "CRAFTING"
+                },
+                {
+                  "skill": "SMITHING"
+                },
+                {
+                  "skill": "MINING"
+                },
+                {
+                  "skill": "FIREMAKING"
+                },
+                {
+                  "skill": "RUNECRAFT"
+                },
+                {
+                  "skill": "HERBLORE"
+                },
+                {
+                  "skill": "AGILITY"
+                },
+                {
+                  "skill": "THIEVING"
+                },
+                {
+                  "skill": "SLAYER"
+                },
+                {
+                  "skill": "FARMING"
+                },
+                {
+                  "skill": "CONSTRUCTION"
+                },
+                {
+                  "skill": "HUNTER"
+                }
+              ]
+            }
+          ],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": true
+          },
+          "requiredQuests": [
+            "Death Plateau",
+            "Enter the Abyss"
+          ]
+        },
+        {
+          "tier": "ELITE",
+          "fixedRewards": [],
+          "choiceRewards": [],
+          "flags": {
+            "hasUnmodeledChoiceRewards": false,
+            "choiceRewardsCurated": false
+          },
+          "requiredQuests": [
+            "Death Plateau",
+            "Enter the Abyss"
+          ]
+        }
+      ],
+      "source": {
+        "url": "https://oldschool.runescape.wiki/w/Wilderness_Diary"
+      }
+    }
+  ]
+}
