@@ -373,7 +373,7 @@ public class PureHelperPanel extends PluginPanel
 			BuildProfile selected = (BuildProfile) buildProfileSelector.getSelectedItem();
 			if (selected != null)
 			{
-				configManager.setConfiguration(CONFIG_GROUP, "buildProfile", selected.name());
+				configManager.setConfiguration(CONFIG_GROUP, "buildProfile", selected);
 			}
 		});
 		skillSettingsTab.add(buildProfileSelector, c);
@@ -904,6 +904,7 @@ public class PureHelperPanel extends PluginPanel
 
 		configManager.setConfiguration(CONFIG_GROUP, SKILL_CAPS_KEY, ConfigParsers.toSkillCapsCsv(caps));
 		stateManager.setSkillState(currentAvoidedSkillsCsv(), ConfigParsers.toSkillCapsCsv(caps));
+		syncBuildProfileToCustomForManualEdits();
 	}
 
 	private void loadQuestRules()
@@ -1766,6 +1767,16 @@ public class PureHelperPanel extends PluginPanel
 		String csv = currentAvoidedSkillsCsv();
 		configManager.setConfiguration(CONFIG_GROUP, "avoidedSkillsCsv", csv);
 		stateManager.setSkillState(csv, currentSkillCapsCsv());
+		syncBuildProfileToCustomForManualEdits();
+	}
+
+	private void syncBuildProfileToCustomForManualEdits()
+	{
+		if (syncingUi || config.buildProfile() == BuildProfile.CUSTOM)
+		{
+			return;
+		}
+		configManager.setConfiguration(CONFIG_GROUP, "buildProfile", BuildProfile.CUSTOM);
 	}
 
 	private String currentAvoidedSkillsCsv()
