@@ -70,6 +70,10 @@ public class PureHelperPlugin extends Plugin
 	private static final String QUEST_RULES_PATH = "/quest-filter-rules.json";
 	private static final int QUEST_TOOLTIP_MAX_CHARS = 180;
 	private static final int QUEST_TOOLTIP_WRAP_AT = 46;
+	private static final AvoidedSkill[] PROTECTABLE_SKILLS = {
+		AvoidedSkill.ATTACK, AvoidedSkill.STRENGTH, AvoidedSkill.DEFENCE,
+		AvoidedSkill.HITPOINTS, AvoidedSkill.RANGED, AvoidedSkill.MAGIC, AvoidedSkill.PRAYER
+	};
 
 	private static BufferedImage createSidebarIcon(Color accent)
 	{
@@ -196,9 +200,6 @@ public class PureHelperPlugin extends Plugin
 	private PureHelperPanel pureHelperPanel;
 
 	@Inject
-	private PureHelperStateManager stateManager;
-
-	@Inject
 	private Gson gson;
 
 	@Inject
@@ -224,7 +225,7 @@ public class PureHelperPlugin extends Plugin
 	{
 		PureHelperUiConstants.applyAccent(config.accentColor());
 		sidebarIcon = createSidebarIcon(config.accentColor());
-		stateManager.seedSkillStateIfMissing(config.avoidedSkillsCsv(), config.protectedSkillCapsCsv());
+		migrateLegacySkillSelection();
 		loadQuestRules();
 		updatePanelVisibility();
 		overlayManager.add(dangerOverlay);
@@ -307,6 +308,11 @@ public class PureHelperPlugin extends Plugin
 			applyBuildProfile(config.buildProfile());
 		}
 
+		if (!applyingProfile && isSkillSelectionKey(event.getKey()) && config.buildProfile() != BuildProfile.CUSTOM)
+		{
+			configManager.setConfiguration(CONFIG_GROUP, "buildProfile", BuildProfile.CUSTOM);
+		}
+
 		if (applyingProfile)
 		{
 			return;
@@ -333,12 +339,7 @@ public class PureHelperPlugin extends Plugin
 		{
 			Set<AvoidedSkill> skills = profile.avoidedSkills();
 			Map<AvoidedSkill, Integer> caps = profile.skillCaps();
-			String avoidedSkillsCsv = ConfigParsers.toAvoidedSkillsCsv(skills);
-			String protectedSkillCapsCsv = ConfigParsers.toSkillCapsCsv(caps);
-
-			configManager.setConfiguration(CONFIG_GROUP, "avoidedSkillsCsv", avoidedSkillsCsv);
-			configManager.setConfiguration(CONFIG_GROUP, "protectedSkillCapsCsv", protectedSkillCapsCsv);
-			stateManager.setSkillState(avoidedSkillsCsv, protectedSkillCapsCsv);
+			writeSkillSelection(skills, caps);
 			log.debug("Applied build profile: {} -> skills={}, caps={}", profile, skills, caps);
 		}
 		finally
@@ -734,18 +735,102 @@ public class PureHelperPlugin extends Plugin
 
 	private Set<AvoidedSkill> getAvoidedSkills()
 	{
-		PureHelperStateManager.SkillState state = stateManager.getSkillStateOrFallback(
-			config.avoidedSkillsCsv(),
-			config.protectedSkillCapsCsv());
-		return ConfigParsers.parseAvoidedSkillsCsv(state.avoidedSkillsCsv);
+		return ConfigParsers.protectedSkills(config);
 	}
 
 	private Map<AvoidedSkill, Integer> getSkillCaps()
 	{
-		PureHelperStateManager.SkillState state = stateManager.getSkillStateOrFallback(
-			config.avoidedSkillsCsv(),
-			config.protectedSkillCapsCsv());
-		return ConfigParsers.parseSkillCapsCsv(state.protectedSkillCapsCsv);
+		return ConfigParsers.skillCaps(config);
+	}
+
+	private void writeSkillSelection(Set<AvoidedSkill> skills, Map<AvoidedSkill, Integer> caps)
+	{
+		for (AvoidedSkill skill : PROTECTABLE_SKILLS)
+		{
+			boolean protect = skills.contains(skill);
+			configManager.setConfiguration(CONFIG_GROUP, protectKey(skill), protect);
+			Integer cap = caps == null ? null : caps.get(skill);
+			configManager.setConfiguration(CONFIG_GROUP, capKey(skill), protect && cap != null ? cap : 0);
+		}
+	}
+
+	private void migrateLegacySkillSelection()
+	{
+		if (config.skillsMigratedToNative())
+		{
+			return;
+		}
+
+		Set<AvoidedSkill> legacySkills = ConfigParsers.parseAvoidedSkillsCsv(config.avoidedSkillsCsv());
+		Map<AvoidedSkill, Integer> legacyCaps = ConfigParsers.parseSkillCapsCsv(config.protectedSkillCapsCsv());
+		if (!legacySkills.isEmpty())
+		{
+			applyingProfile = true;
+			try
+			{
+				writeSkillSelection(legacySkills, legacyCaps);
+			}
+			finally
+			{
+				applyingProfile = false;
+			}
+		}
+		configManager.setConfiguration(CONFIG_GROUP, "skillsMigratedToNative", true);
+	}
+
+	private static boolean isSkillSelectionKey(String key)
+	{
+		if (key == null)
+		{
+			return false;
+		}
+		return key.startsWith("protect") || key.endsWith("Cap");
+	}
+
+	private static String protectKey(AvoidedSkill skill)
+	{
+		switch (skill)
+		{
+			case ATTACK:
+				return "protectAttack";
+			case STRENGTH:
+				return "protectStrength";
+			case DEFENCE:
+				return "protectDefence";
+			case HITPOINTS:
+				return "protectHitpoints";
+			case RANGED:
+				return "protectRanged";
+			case MAGIC:
+				return "protectMagic";
+			case PRAYER:
+				return "protectPrayer";
+			default:
+				return null;
+		}
+	}
+
+	private static String capKey(AvoidedSkill skill)
+	{
+		switch (skill)
+		{
+			case ATTACK:
+				return "attackCap";
+			case STRENGTH:
+				return "strengthCap";
+			case DEFENCE:
+				return "defenceCap";
+			case HITPOINTS:
+				return "hitpointsCap";
+			case RANGED:
+				return "rangedCap";
+			case MAGIC:
+				return "magicCap";
+			case PRAYER:
+				return "prayerCap";
+			default:
+				return null;
+		}
 	}
 
 	private String joinAvoidedSkills(Set<AvoidedSkill> avoidedSkills)

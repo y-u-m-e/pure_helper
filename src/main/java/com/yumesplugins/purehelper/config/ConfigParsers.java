@@ -12,6 +12,70 @@ final class ConfigParsers
 	{
 	}
 
+	static Set<AvoidedSkill> protectedSkills(PureHelperConfig config)
+	{
+		Set<AvoidedSkill> skills = EnumSet.noneOf(AvoidedSkill.class);
+		if (config == null)
+		{
+			return skills;
+		}
+		if (config.protectAttack())
+		{
+			skills.add(AvoidedSkill.ATTACK);
+		}
+		if (config.protectStrength())
+		{
+			skills.add(AvoidedSkill.STRENGTH);
+		}
+		if (config.protectDefence())
+		{
+			skills.add(AvoidedSkill.DEFENCE);
+		}
+		if (config.protectHitpoints())
+		{
+			skills.add(AvoidedSkill.HITPOINTS);
+		}
+		if (config.protectRanged())
+		{
+			skills.add(AvoidedSkill.RANGED);
+		}
+		if (config.protectMagic())
+		{
+			skills.add(AvoidedSkill.MAGIC);
+		}
+		if (config.protectPrayer())
+		{
+			skills.add(AvoidedSkill.PRAYER);
+		}
+		return skills;
+	}
+
+	static Map<AvoidedSkill, Integer> skillCaps(PureHelperConfig config)
+	{
+		Map<AvoidedSkill, Integer> caps = new EnumMap<>(AvoidedSkill.class);
+		if (config == null)
+		{
+			return caps;
+		}
+		putCap(caps, AvoidedSkill.ATTACK, config.protectAttack(), config.attackCap());
+		putCap(caps, AvoidedSkill.STRENGTH, config.protectStrength(), config.strengthCap());
+		putCap(caps, AvoidedSkill.DEFENCE, config.protectDefence(), config.defenceCap());
+		putCap(caps, AvoidedSkill.HITPOINTS, config.protectHitpoints(), config.hitpointsCap());
+		putCap(caps, AvoidedSkill.RANGED, config.protectRanged(), config.rangedCap());
+		putCap(caps, AvoidedSkill.MAGIC, config.protectMagic(), config.magicCap());
+		putCap(caps, AvoidedSkill.PRAYER, config.protectPrayer(), config.prayerCap());
+		return caps;
+	}
+
+	private static void putCap(Map<AvoidedSkill, Integer> caps, AvoidedSkill skill, boolean protectedSkill, int cap)
+	{
+		// A cap of 0 means "block all XP" which the evaluator models as a protected skill with no cap entry.
+		if (protectedSkill && cap >= 1 && cap <= 99)
+		{
+			caps.put(skill, cap);
+		}
+	}
+
 	static Set<AvoidedSkill> parseAvoidedSkillsCsv(String csv)
 	{
 		Set<AvoidedSkill> parsed = EnumSet.noneOf(AvoidedSkill.class);

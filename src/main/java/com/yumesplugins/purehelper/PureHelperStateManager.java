@@ -7,18 +7,19 @@ import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Persists lightweight, non-configuration UI state for the informational sidebar
+ * (currently just the collapse state of the "not doable" lists).
+ */
 @Slf4j
 @Singleton
 class PureHelperStateManager
 {
-	static final int STATE_SCHEMA_VERSION = 1;
+	static final int STATE_SCHEMA_VERSION = 2;
 	private static final Path STATE_FILE = Path.of(
 		System.getProperty("user.home"),
 		".runelite",
@@ -32,69 +33,6 @@ class PureHelperStateManager
 	PureHelperStateManager(Gson gson)
 	{
 		this.gson = gson.newBuilder().setPrettyPrinting().create();
-	}
-
-	synchronized void seedSkillStateIfMissing(String avoidedSkillsCsv, String protectedSkillCapsCsv)
-	{
-		ensureLoaded();
-		boolean changed = false;
-		if (isBlank(state.avoidedSkillsCsv) && !isBlank(avoidedSkillsCsv))
-		{
-			state.avoidedSkillsCsv = avoidedSkillsCsv;
-			changed = true;
-		}
-		if (isBlank(state.protectedSkillCapsCsv) && !isBlank(protectedSkillCapsCsv))
-		{
-			state.protectedSkillCapsCsv = protectedSkillCapsCsv;
-			changed = true;
-		}
-		if (changed)
-		{
-			saveState();
-		}
-	}
-
-	synchronized String getAvoidedSkillsCsv()
-	{
-		ensureLoaded();
-		return state.avoidedSkillsCsv == null ? "" : state.avoidedSkillsCsv;
-	}
-
-	synchronized String getProtectedSkillCapsCsv()
-	{
-		ensureLoaded();
-		return state.protectedSkillCapsCsv == null ? "" : state.protectedSkillCapsCsv;
-	}
-
-	synchronized void setSkillState(String avoidedSkillsCsv, String protectedSkillCapsCsv)
-	{
-		ensureLoaded();
-		state.avoidedSkillsCsv = avoidedSkillsCsv == null ? "" : avoidedSkillsCsv;
-		state.protectedSkillCapsCsv = protectedSkillCapsCsv == null ? "" : protectedSkillCapsCsv;
-		saveState();
-	}
-
-	synchronized SkillState getSkillStateOrFallback(String fallbackAvoidedSkillsCsv, String fallbackProtectedSkillCapsCsv)
-	{
-		ensureLoaded();
-		String avoidedSkillsCsv = isBlank(state.avoidedSkillsCsv) ? fallbackAvoidedSkillsCsv : state.avoidedSkillsCsv;
-		String protectedSkillCapsCsv = isBlank(state.protectedSkillCapsCsv) ? fallbackProtectedSkillCapsCsv : state.protectedSkillCapsCsv;
-		return new SkillState(
-			avoidedSkillsCsv == null ? "" : avoidedSkillsCsv,
-			protectedSkillCapsCsv == null ? "" : protectedSkillCapsCsv);
-	}
-
-	synchronized boolean isCompactRows()
-	{
-		ensureLoaded();
-		return state.compactRows;
-	}
-
-	synchronized void setCompactRows(boolean compactRows)
-	{
-		ensureLoaded();
-		state.compactRows = compactRows;
-		saveState();
 	}
 
 	synchronized boolean isCollapseNotDoableQuestList()
@@ -123,97 +61,6 @@ class PureHelperStateManager
 		saveState();
 	}
 
-	synchronized boolean isSkillSelectionLocked()
-	{
-		ensureLoaded();
-		return state.skillSelectionLocked;
-	}
-
-	synchronized void setSkillSelectionLocked(boolean skillSelectionLocked)
-	{
-		ensureLoaded();
-		state.skillSelectionLocked = skillSelectionLocked;
-		saveState();
-	}
-
-	synchronized boolean isDiarySectionCollapsed(String diaryName, boolean defaultCollapsed)
-	{
-		ensureLoaded();
-		if (diaryName == null || diaryName.isBlank())
-		{
-			return defaultCollapsed;
-		}
-		Boolean collapsed = state.collapsedDiarySections.get(diaryName);
-		return collapsed == null ? defaultCollapsed : collapsed;
-	}
-
-	synchronized void setDiarySectionCollapsed(String diaryName, boolean collapsed)
-	{
-		if (diaryName == null || diaryName.isBlank())
-		{
-			return;
-		}
-
-		ensureLoaded();
-		state.collapsedDiarySections.put(diaryName, collapsed);
-		saveState();
-	}
-
-	synchronized void resetState(String fallbackAvoidedSkillsCsv, String fallbackProtectedSkillCapsCsv)
-	{
-		state = new State();
-		state.avoidedSkillsCsv = fallbackAvoidedSkillsCsv == null ? "" : fallbackAvoidedSkillsCsv;
-		state.protectedSkillCapsCsv = fallbackProtectedSkillCapsCsv == null ? "" : fallbackProtectedSkillCapsCsv;
-		loaded = true;
-		saveState();
-	}
-
-	synchronized void exportBuildPreset(Path outputFile, String profileName, String notes) throws IOException
-	{
-		ensureLoaded();
-		BuildPresetFile presetFile = new BuildPresetFile();
-		presetFile.schema = "pure-helper.build-preset.v1";
-		presetFile.profileName = isBlank(profileName) ? "Custom build" : profileName;
-		presetFile.notes = notes == null ? "" : notes;
-		presetFile.avoidedSkillsCsv = state.avoidedSkillsCsv == null ? "" : state.avoidedSkillsCsv;
-		presetFile.protectedSkillCapsCsv = state.protectedSkillCapsCsv == null ? "" : state.protectedSkillCapsCsv;
-
-		Objects.requireNonNull(outputFile, "outputFile");
-		Files.createDirectories(outputFile.getParent());
-		try (Writer writer = Files.newBufferedWriter(outputFile, StandardCharsets.UTF_8))
-		{
-			gson.toJson(presetFile, writer);
-		}
-	}
-
-	synchronized boolean importBuildPreset(Path inputFile) throws IOException
-	{
-		Objects.requireNonNull(inputFile, "inputFile");
-		if (!Files.exists(inputFile))
-		{
-			return false;
-		}
-
-		try (Reader reader = Files.newBufferedReader(inputFile, StandardCharsets.UTF_8))
-		{
-			BuildPresetFile imported = gson.fromJson(reader, BuildPresetFile.class);
-			if (imported == null)
-			{
-				return false;
-			}
-			if (!isBlank(imported.schema) && !imported.schema.startsWith("pure-helper.build-preset."))
-			{
-				return false;
-			}
-
-			ensureLoaded();
-			state.avoidedSkillsCsv = imported.avoidedSkillsCsv == null ? "" : imported.avoidedSkillsCsv;
-			state.protectedSkillCapsCsv = imported.protectedSkillCapsCsv == null ? "" : imported.protectedSkillCapsCsv;
-			saveState();
-			return true;
-		}
-	}
-
 	private void ensureLoaded()
 	{
 		if (loaded)
@@ -237,10 +84,6 @@ class PureHelperStateManager
 				if (state.schemaVersion <= 0)
 				{
 					state.schemaVersion = STATE_SCHEMA_VERSION;
-				}
-				if (state.collapsedDiarySections == null)
-				{
-					state.collapsedDiarySections = new HashMap<>();
 				}
 			}
 		}
@@ -267,41 +110,10 @@ class PureHelperStateManager
 		}
 	}
 
-	private static boolean isBlank(String value)
-	{
-		return value == null || value.isBlank();
-	}
-
 	private static class State
 	{
 		private int schemaVersion = STATE_SCHEMA_VERSION;
-		private String avoidedSkillsCsv = "";
-		private String protectedSkillCapsCsv = "";
-		private boolean compactRows;
 		private boolean collapseNotDoableQuestList = true;
 		private boolean collapseNotDoableDiaryList = true;
-		private boolean skillSelectionLocked;
-		private Map<String, Boolean> collapsedDiarySections = new HashMap<>();
-	}
-
-	static final class SkillState
-	{
-		final String avoidedSkillsCsv;
-		final String protectedSkillCapsCsv;
-
-		private SkillState(String avoidedSkillsCsv, String protectedSkillCapsCsv)
-		{
-			this.avoidedSkillsCsv = avoidedSkillsCsv;
-			this.protectedSkillCapsCsv = protectedSkillCapsCsv;
-		}
-	}
-
-	private static class BuildPresetFile
-	{
-		private String schema;
-		private String profileName;
-		private String notes;
-		private String avoidedSkillsCsv;
-		private String protectedSkillCapsCsv;
 	}
 }

@@ -24,6 +24,12 @@ public enum RiskSeverity
 		return label;
 	}
 
+	@Override
+	public String toString()
+	{
+		return label;
+	}
+
 	public Color getColor()
 	{
 		switch (this)
