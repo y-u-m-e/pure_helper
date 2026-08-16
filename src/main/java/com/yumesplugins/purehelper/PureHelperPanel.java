@@ -35,7 +35,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
-import net.runelite.api.SpriteID;
+import net.runelite.api.gameval.SpriteID;
 import net.runelite.client.game.SpriteManager;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.FontManager;
@@ -231,7 +231,7 @@ public class PureHelperPanel extends PluginPanel
 				Integer cap = caps.get(skill);
 				String detail = cap == null ? "all XP blocked" : "max level " + cap;
 				JPanel row = buildAccentRow(
-					SpriteID.RS2_TAB_STATS,
+					SpriteID.SideiconsInterface.STATS,
 					skill.getLabel() + " \u2014 " + detail,
 					PureHelperUiConstants.BLOCKED_ACCENT,
 					PureHelperUiConstants.BLOCKED_TEXT,
@@ -321,7 +321,7 @@ public class PureHelperPanel extends PluginPanel
 
 		// Not doable quests
 		JPanel questsHeader = buildCollapsibleHeader(
-			SpriteID.QUESTS_PAGE_ICON_BLUE_QUESTS,
+			SpriteID.AchievementDiaryIcons.BLUE_QUESTS,
 			"Not doable quests",
 			blockedRules.size(),
 			collapseNotDoableQuestList,
@@ -350,7 +350,7 @@ public class PureHelperPanel extends PluginPanel
 						rule, avoidedSkills, skillCaps, effectiveChoicePolicy(),
 						config.safeguardStrictness(), memo, new HashSet<>());
 					JPanel row = buildAccentRow(
-						SpriteID.QUESTS_PAGE_ICON_BLUE_QUESTS,
+						SpriteID.AchievementDiaryIcons.BLUE_QUESTS,
 						rule.name,
 						PureHelperUiConstants.BLOCKED_ACCENT,
 						PureHelperUiConstants.BLOCKED_TEXT,
@@ -366,7 +366,7 @@ public class PureHelperPanel extends PluginPanel
 
 		// Not doable achievement diaries
 		JPanel diariesHeader = buildCollapsibleHeader(
-			SpriteID.QUESTS_PAGE_ICON_GREEN_ACHIEVEMENT_DIARIES,
+			SpriteID.AchievementDiaryIcons.GREEN_ACHIEVEMENT_DIARIES,
 			"Not doable achievement diaries",
 			riskyDiaryTiers.size(),
 			collapseNotDoableDiaryList,
@@ -395,7 +395,7 @@ public class PureHelperPanel extends PluginPanel
 					tiers.sort((a, b) -> Integer.compare(tierOrder(a), tierOrder(b)));
 
 					JPanel diaryRow = buildAccentRow(
-						SpriteID.QUESTS_PAGE_ICON_GREEN_ACHIEVEMENT_DIARIES,
+						SpriteID.AchievementDiaryIcons.GREEN_ACHIEVEMENT_DIARIES,
 						entry.getKey(),
 						PureHelperUiConstants.BLOCKED_ACCENT,
 						PureHelperUiConstants.BLOCKED_TEXT,
@@ -406,7 +406,7 @@ public class PureHelperPanel extends PluginPanel
 					for (String tierName : tiers)
 					{
 						JPanel tierRow = buildAccentRow(
-							SpriteID.RS2_TAB_STATS,
+							SpriteID.SideiconsInterface.STATS,
 							formatTierLabel(tierName),
 							PureHelperUiConstants.BLOCKED_ACCENT,
 							PureHelperUiConstants.BLOCKED_TEXT,
@@ -444,7 +444,7 @@ public class PureHelperPanel extends PluginPanel
 			for (String line : riskLogEntries)
 			{
 				JPanel row = buildAccentRow(
-					SpriteID.QUESTS_PAGE_ICON_RED_MINIGAMES,
+					SpriteID.AchievementDiaryIcons.RED_MINIGAMES,
 					line,
 					PureHelperUiConstants.ACCENT_PRIMARY_DIM,
 					ColorScheme.LIGHT_GRAY_COLOR,
@@ -632,17 +632,17 @@ public class PureHelperPanel extends PluginPanel
 		String lower = title == null ? "" : title.toLowerCase(Locale.ENGLISH);
 		if (lower.contains("quest") || lower.contains("diary"))
 		{
-			return SpriteID.QUESTS_PAGE_ICON_BLUE_QUESTS;
+			return SpriteID.AchievementDiaryIcons.BLUE_QUESTS;
 		}
 		if (lower.contains("build") || lower.contains("skill"))
 		{
-			return SpriteID.RS2_TAB_STATS;
+			return SpriteID.SideiconsInterface.STATS;
 		}
 		if (lower.contains("log"))
 		{
-			return SpriteID.QUESTS_PAGE_ICON_RED_MINIGAMES;
+			return SpriteID.AchievementDiaryIcons.RED_MINIGAMES;
 		}
-		return SpriteID.QUESTS_PAGE_ICON_BLUE_QUESTS;
+		return SpriteID.AchievementDiaryIcons.BLUE_QUESTS;
 	}
 
 	private int tierOrder(String tier)

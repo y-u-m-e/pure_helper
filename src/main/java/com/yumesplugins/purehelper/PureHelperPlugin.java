@@ -38,8 +38,8 @@ import net.runelite.api.events.MenuEntryAdded;
 import net.runelite.api.events.ScriptPostFired;
 import net.runelite.api.events.VarbitChanged;
 import net.runelite.api.events.WidgetLoaded;
-import net.runelite.api.InventoryID;
 import net.runelite.api.gameval.InterfaceID;
+import net.runelite.api.gameval.InventoryID;
 import net.runelite.api.gameval.VarPlayerID;
 import net.runelite.api.gameval.VarbitID;
 import net.runelite.api.widgets.Widget;
@@ -375,7 +375,7 @@ public class PureHelperPlugin extends Plugin
 	@Subscribe
 	public void onItemContainerChanged(ItemContainerChanged event)
 	{
-		if (event.getContainerId() != InventoryID.EQUIPMENT.getId())
+		if (event.getContainerId() != InventoryID.WORN)
 		{
 			return;
 		}
@@ -442,7 +442,7 @@ public class PureHelperPlugin extends Plugin
 			return;
 		}
 
-		MenuEntry[] entries = client.getMenuEntries();
+		MenuEntry[] entries = client.getMenu().getMenuEntries();
 		if (entries.length == 0)
 		{
 			return;
@@ -466,7 +466,7 @@ public class PureHelperPlugin extends Plugin
 		MenuEntry[] filtered = new MenuEntry[entries.length - 1];
 		System.arraycopy(entries, 0, filtered, 0, removeIndex);
 		System.arraycopy(entries, removeIndex + 1, filtered, removeIndex, entries.length - removeIndex - 1);
-		client.setMenuEntries(filtered);
+		client.getMenu().setMenuEntries(filtered);
 	}
 
 	private static boolean isPlayerAttackEntry(MenuEntry entry)
