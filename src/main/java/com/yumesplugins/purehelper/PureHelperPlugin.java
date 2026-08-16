@@ -53,7 +53,6 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
-import net.runelite.client.game.SpriteManager;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.util.Text;
@@ -189,9 +188,6 @@ public class PureHelperPlugin extends Plugin
 
 	@Inject
 	private OverlayManager overlayManager;
-
-	@Inject
-	private SpriteManager spriteManager;
 
 	@Inject
 	private PureHelperDangerOverlay dangerOverlay;

@@ -114,22 +114,6 @@ final class QuestRiskEvaluator
 		return result;
 	}
 
-	boolean hasChoiceXpCaution(QuestRule rule)
-	{
-		if (rule == null)
-		{
-			return false;
-		}
-
-		boolean hasAnyChoiceRewards = rule.choiceRewards != null && !rule.choiceRewards.isEmpty();
-		boolean hasAnyChoiceOptions = rule.choiceRewards != null && rule.choiceRewards.stream()
-			.filter(Objects::nonNull)
-			.flatMap(choice -> choice.options == null ? java.util.stream.Stream.empty() : choice.options.stream())
-			.anyMatch(Objects::nonNull);
-		return hasAnyChoiceRewards || hasAnyChoiceOptions
-			|| (rule.flags != null && rule.flags.hasUnmodeledChoiceRewards);
-	}
-
 	boolean evaluateDiaryTierRisk(
 		DiaryTier tier,
 		Set<AvoidedSkill> avoidedSkills,
@@ -232,16 +216,6 @@ final class QuestRiskEvaluator
 		}
 
 		return null;
-	}
-
-	boolean hasDiaryChoiceXpCaution(DiaryTier tier)
-	{
-		if (tier == null)
-		{
-			return false;
-		}
-		return (tier.choiceRewards != null && !tier.choiceRewards.isEmpty())
-			|| (tier.flags != null && tier.flags.hasUnmodeledChoiceRewards);
 	}
 
 	private QuestEvaluation evaluatePrerequisiteRisk(
