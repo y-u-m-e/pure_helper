@@ -78,58 +78,13 @@ public class PureHelperPlugin extends Plugin
 	{
 		Color baseAccent = accent == null ? PureHelperUiConstants.DEFAULT_ACCENT : accent;
 		Color accentDim = PureHelperUiConstants.ACCENT_PRIMARY_DIM;
-		Color accentSoft = PureHelperUiConstants.ACCENT_SOFT;
 		BufferedImage img = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g = img.createGraphics();
 		try
 		{
 			g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-			/*
-			 * Saved icon variant (blue rune):
-			 * g.setPaint(new GradientPaint(0, 0, new Color(28, 31, 38), 0, 15, new Color(14, 16, 22)));
-			 * g.fillRoundRect(0, 0, 15, 15, 4, 4);
-			 *
-			 * g.setColor(new Color(103, 167, 230));
-			 * g.setStroke(new BasicStroke(1.2f));
-			 * g.drawRoundRect(0, 0, 15, 15, 4, 4);
-			 * g.setColor(new Color(38, 82, 123, 220));
-			 * g.drawRoundRect(1, 1, 13, 13, 3, 3);
-			 *
-			 * g.setColor(new Color(86, 188, 255, 210));
-			 * int[] x = {8, 11, 8, 5};
-			 * int[] y = {3, 8, 13, 8};
-			 * g.fillPolygon(x, y, 4);
-			 * g.setColor(new Color(208, 242, 255, 240));
-			 * g.drawPolygon(x, y, 4);
-			 * g.setColor(new Color(16, 38, 58, 220));
-			 * g.drawLine(8, 4, 8, 12);
-			 * g.drawLine(6, 8, 10, 8);
-			 *
-			 * g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 7));
-			 * g.setColor(new Color(230, 240, 255, 230));
-			 * g.drawString("P", 2, 7);
-			 */
 
-			/*
-			 * Saved icon variant (bronze shield):
-			 * g.setPaint(new GradientPaint(0, 0, new Color(46, 34, 22), 0, 15, new Color(20, 16, 12)));
-			 * g.fillRoundRect(0, 0, 15, 15, 4, 4);
-			 * g.setColor(new Color(214, 162, 86));
-			 * g.setStroke(new BasicStroke(1.15f));
-			 * g.drawRoundRect(0, 0, 15, 15, 4, 4);
-			 * g.setColor(new Color(130, 90, 42, 220));
-			 * g.drawRoundRect(1, 1, 13, 13, 3, 3);
-			 * g.setColor(new Color(231, 190, 118, 220));
-			 * g.fillRoundRect(4, 3, 8, 9, 3, 3);
-			 * g.setColor(new Color(60, 36, 14, 230));
-			 * g.setStroke(new BasicStroke(1.4f));
-			 * g.drawLine(5, 10, 10, 5);
-			 * g.drawLine(5, 5, 10, 10);
-			 * g.setColor(new Color(255, 240, 206, 160));
-			 * g.drawLine(4, 4, 10, 4);
-			 */
-
-			// Whole new look: modern split-panel badge.
+			// Modern split-panel badge.
 			g.setPaint(new GradientPaint(0, 0, new Color(14, 15, 21), 0, 15, new Color(7, 8, 12)));
 			g.fillRoundRect(0, 0, 15, 15, 4, 4);
 

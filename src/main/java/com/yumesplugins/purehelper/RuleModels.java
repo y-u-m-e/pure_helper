@@ -90,7 +90,6 @@ class QuestEvaluation
 	final boolean locked;
 	final String reason;
 	final EvaluationReasonCode reasonCode;
-	final RiskSeverity severity;
 
 	QuestEvaluation(boolean risky, boolean locked, String reason)
 	{
@@ -103,7 +102,6 @@ class QuestEvaluation
 		this.locked = locked;
 		this.reason = reason;
 		this.reasonCode = reasonCode == null ? EvaluationReasonCode.NONE : reasonCode;
-		this.severity = resolveSeverity(risky, locked);
 	}
 
 	boolean isBlocked()
@@ -116,16 +114,4 @@ class QuestEvaluation
 		return new QuestEvaluation(false, false, "", EvaluationReasonCode.NONE);
 	}
 
-	private static RiskSeverity resolveSeverity(boolean risky, boolean locked)
-	{
-		if (locked)
-		{
-			return RiskSeverity.BLOCKED;
-		}
-		if (risky)
-		{
-			return RiskSeverity.DANGEROUS;
-		}
-		return RiskSeverity.SAFE;
-	}
 }
