@@ -31,9 +31,14 @@ public class RiskLog
 	}
 
 	private final LinkedList<Entry> entries = new LinkedList<>();
+	private int sessionSlips;
 
 	public synchronized void add(Entry e)
 	{
+		if (!e.blocked)
+		{
+			sessionSlips++;
+		}
 		entries.addFirst(e);
 		if (entries.size() > MAX)
 		{
@@ -47,17 +52,9 @@ public class RiskLog
 		return Collections.unmodifiableList(new ArrayList<>(entries));
 	}
 
-	/** Dangerous states that actually happened: anything not blocked. */
-	public synchronized int slips()
+	/** Dangerous states that actually happened this session (anything not blocked), including entries past the cap. */
+	public synchronized int sessionSlips()
 	{
-		int n = 0;
-		for (Entry e : entries)
-		{
-			if (!e.blocked)
-			{
-				n++;
-			}
-		}
-		return n;
+		return sessionSlips;
 	}
 }

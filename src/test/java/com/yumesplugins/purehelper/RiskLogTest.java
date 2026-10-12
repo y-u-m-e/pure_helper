@@ -25,12 +25,23 @@ public class RiskLogTest
 	}
 
 	@Test
-	public void slipsCountsOverrides()
+	public void sessionSlipsCountsOverrides()
 	{
 		RiskLog log = new RiskLog();
 		log.add(entry("blocked", true, false));
-		assertEquals(0, log.slips());
+		assertEquals(0, log.sessionSlips());
 		log.add(entry("overridden", false, true));
-		assertEquals(1, log.slips());
+		assertEquals(1, log.sessionSlips());
+	}
+
+	@Test
+	public void sessionSlipsOutliveTheFiftyEntryCap()
+	{
+		RiskLog log = new RiskLog();
+		for (int i = 1; i <= 60; i++)
+		{
+			log.add(entry("e" + i, false, false));
+		}
+		assertEquals(60, log.sessionSlips());
 	}
 }

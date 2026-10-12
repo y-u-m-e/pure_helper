@@ -5,14 +5,17 @@ import com.google.inject.Provides;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
 import javax.inject.Inject;
+import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.ScriptID;
+import net.runelite.api.Skill;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.MenuOptionClicked;
@@ -23,14 +26,18 @@ import net.runelite.api.events.ScriptPostFired;
 import net.runelite.api.events.StatChanged;
 import net.runelite.api.events.VarbitChanged;
 import net.runelite.api.events.ClientTick;
+import net.runelite.api.events.GameTick;
 import net.runelite.api.gameval.VarPlayerID;
 import net.runelite.api.gameval.VarbitID;
 import net.runelite.api.widgets.Widget;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
+import net.runelite.client.game.SkillIconManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.ui.ClientToolbar;
+import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.tooltip.TooltipManager;
 
@@ -65,12 +72,24 @@ public class PureHelperPlugin extends Plugin
 	@Inject
 	private TooltipManager tooltipManager;
 
+	@Inject
+	private RiskLog riskLog;
+
+	@Inject
+	private ClientToolbar clientToolbar;
+
+	@Inject
+	private SkillIconManager skillIconManager;
+
 	private volatile Build build = Build.EMPTY;
 	private CombatGuard combatGuard;
 	private LampGuard lampGuard;
 	private LampOverlay lampOverlay;
 	private QuestGuard questGuard;
 	private QuestTooltipOverlay questTooltipOverlay;
+	private PureHelperPanel panel;
+	private NavigationButton navButton;
+	private volatile PanelState pushed; // last state handed to the panel; cleared on config change
 
 	@Override
 	protected void startUp()
@@ -111,7 +130,19 @@ public class PureHelperPlugin extends Plugin
 				}
 			});
 		});
-		clientThread.invoke(this::rebuildAndRefresh);
+		panel = new PureHelperPanel(config, skillIconManager);
+		navButton = NavigationButton.builder()
+			.tooltip("Pure Helper")
+			.icon(skillIconManager.getSkillImage(Skill.DEFENCE, true))
+			.panel(panel)
+			.build();
+		clientToolbar.addNavigation(navButton);
+		clientThread.invoke(() ->
+		{
+			pushed = null;
+			rebuildAndRefresh();
+			pushPanel();
+		});
 	}
 
 	@Override
@@ -120,6 +151,7 @@ public class PureHelperPlugin extends Plugin
 		overlayManager.remove(dangerOverlay);
 		overlayManager.remove(lampOverlay);
 		overlayManager.remove(questTooltipOverlay);
+		clientToolbar.removeNavigation(navButton);
 		final CombatGuard g = combatGuard;
 		final QuestGuard qg = questGuard;
 		clientThread.invoke(() ->
@@ -174,6 +206,7 @@ public class PureHelperPlugin extends Plugin
 			{
 				questGuard.refreshFinished();
 			}
+			pushPanel(); // no GameTicks while logged out
 		}
 	}
 
@@ -188,6 +221,7 @@ public class PureHelperPlugin extends Plugin
 	{
 		if ("purehelper".equals(e.getGroup()))
 		{
+			pushed = null; // the accent colour may have changed, so repaint even if the state did not
 			rebuildAndRefresh();
 		}
 	}
@@ -214,6 +248,24 @@ public class PureHelperPlugin extends Plugin
 		{
 			combatGuard.refresh();
 		}
+	}
+
+	/** Client thread. Hand the panel a new state only when something it shows changed. */
+	private void pushPanel()
+	{
+		PanelState state = PanelState.of(build, riskLog.snapshot(), questGuard.offLimits(), riskLog.sessionSlips(), Instant.now());
+		if (!state.equals(pushed))
+		{
+			pushed = state;
+			final PureHelperPanel p = panel;
+			SwingUtilities.invokeLater(() -> p.render(state));
+		}
+	}
+
+	@Subscribe
+	public void onGameTick(GameTick e)
+	{
+		pushPanel();
 	}
 
 	@Subscribe

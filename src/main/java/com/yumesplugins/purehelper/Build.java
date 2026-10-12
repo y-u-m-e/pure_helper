@@ -72,11 +72,17 @@ public final class Build
 		return Experience.getLevelForXp(xp.get(s));
 	}
 
+	/** Protected and within 10% of the ceiling's XP span (at cap included). */
+	public boolean nearCap(CombatSkill s)
+	{
+		return protects(s) && xpLeft(s) <= ceiling(s) / 10;
+	}
+
 	/** The protected, not-yet-capped skill closest to its ceiling, if within 10% of the ceiling's XP span. */
 	public Optional<CombatSkill> nearestCap()
 	{
 		return java.util.Arrays.stream(CombatSkill.values())
-			.filter(s -> protects(s) && !atCap(s) && xpLeft(s) <= ceiling(s) / 10)
+			.filter(s -> nearCap(s) && !atCap(s))
 			.min(Comparator.comparingInt(this::xpLeft));
 	}
 }
