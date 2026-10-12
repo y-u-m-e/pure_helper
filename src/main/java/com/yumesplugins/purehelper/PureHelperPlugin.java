@@ -1,9 +1,15 @@
 package com.yumesplugins.purehelper;
 
+import com.google.gson.Gson;
 import com.google.inject.Provides;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.concurrent.ScheduledExecutorService;
 import javax.inject.Inject;
+import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.ScriptID;
@@ -26,7 +32,9 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import net.runelite.client.ui.overlay.tooltip.TooltipManager;
 
+@Slf4j
 @PluginDescriptor(name = "Pure Helper")
 public class PureHelperPlugin extends Plugin
 {
@@ -48,10 +56,21 @@ public class PureHelperPlugin extends Plugin
 	@Inject
 	private Alerts alerts;
 
+	@Inject
+	private Gson gson;
+
+	@Inject
+	private ScheduledExecutorService executor;
+
+	@Inject
+	private TooltipManager tooltipManager;
+
 	private volatile Build build = Build.EMPTY;
 	private CombatGuard combatGuard;
 	private LampGuard lampGuard;
 	private LampOverlay lampOverlay;
+	private QuestGuard questGuard;
+	private QuestTooltipOverlay questTooltipOverlay;
 
 	@Override
 	protected void startUp()
@@ -68,6 +87,30 @@ public class PureHelperPlugin extends Plugin
 		lampGuard = new LampGuard(client, config, alerts, () -> build);
 		lampOverlay = new LampOverlay(client, config, () -> build);
 		overlayManager.add(lampOverlay);
+		questGuard = new QuestGuard(client, config, () -> build);
+		questTooltipOverlay = new QuestTooltipOverlay(client, tooltipManager, questGuard);
+		overlayManager.add(questTooltipOverlay);
+		final QuestGuard qg = questGuard;
+		executor.execute(() ->
+		{
+			try (Reader quests = new InputStreamReader(getClass().getResourceAsStream("/quest-filter-rules.json"), StandardCharsets.UTF_8);
+				Reader diaries = new InputStreamReader(getClass().getResourceAsStream("/achievement-diary-rules.json"), StandardCharsets.UTF_8))
+			{
+				qg.setRules(RewardRules.load(gson, quests, diaries));
+			}
+			catch (Exception ex)
+			{
+				log.warn("Could not load reward rules", ex);
+				return;
+			}
+			clientThread.invoke(() ->
+			{
+				if (client.getGameState() == GameState.LOGGED_IN)
+				{
+					qg.refreshFinished();
+				}
+			});
+		});
 		clientThread.invoke(this::rebuildAndRefresh);
 	}
 
@@ -76,10 +119,13 @@ public class PureHelperPlugin extends Plugin
 	{
 		overlayManager.remove(dangerOverlay);
 		overlayManager.remove(lampOverlay);
+		overlayManager.remove(questTooltipOverlay);
 		final CombatGuard g = combatGuard;
+		final QuestGuard qg = questGuard;
 		clientThread.invoke(() ->
 		{
 			g.reset();
+			qg.reset();
 			alerts.reset();
 		});
 	}
@@ -109,10 +155,12 @@ public class PureHelperPlugin extends Plugin
 		if (client.getGameState() == GameState.LOGGED_IN)
 		{
 			combatGuard.refresh();
+			questGuard.refresh();
 		}
 		else
 		{
 			combatGuard.reset();
+			questGuard.reset();
 		}
 	}
 
@@ -122,6 +170,10 @@ public class PureHelperPlugin extends Plugin
 		if (e.getGameState() == GameState.LOGGED_IN || e.getGameState() == GameState.LOGIN_SCREEN)
 		{
 			rebuildAndRefresh();
+			if (e.getGameState() == GameState.LOGGED_IN)
+			{
+				questGuard.refreshFinished();
+			}
 		}
 	}
 
@@ -146,6 +198,10 @@ public class PureHelperPlugin extends Plugin
 		if (e.getScriptId() == ScriptID.COMBAT_INTERFACE_SETUP)
 		{
 			combatGuard.refresh();
+		}
+		else if (e.getScriptId() == ScriptID.QUESTLIST_INIT)
+		{
+			questGuard.refreshFinished();
 		}
 	}
 
@@ -178,6 +234,10 @@ public class PureHelperPlugin extends Plugin
 		if (e.getGroupId() == InterfaceID.XPREWARD)
 		{
 			lampGuard.clearSelection();
+		}
+		else if (e.getGroupId() == InterfaceID.QUESTLIST)
+		{
+			questGuard.refreshFinished();
 		}
 	}
 

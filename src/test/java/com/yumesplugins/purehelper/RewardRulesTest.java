@@ -9,7 +9,6 @@ import com.google.gson.Gson;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.HashSet;
@@ -22,9 +21,7 @@ import org.junit.Test;
 public class RewardRulesTest
 {
 	/** Quest names in the bundled JSON that are not in net.runelite.api.Quest, with why. */
-	private static final Set<String> KNOWN_UNMATCHED = new HashSet<>(Arrays.asList(
-		"Desert Treasure" // wiki title; RuneLite names it "Desert Treasure I"
-	));
+	private static final Set<String> KNOWN_UNMATCHED = new HashSet<>();
 
 	private static Reader res(String name)
 	{
