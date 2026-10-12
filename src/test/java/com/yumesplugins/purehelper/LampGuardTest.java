@@ -58,4 +58,13 @@ public class LampGuardTest
 		assertEquals(EnumSet.allOf(CombatSkill.class), EnumSet.copyOf(LampGuard.SKILL_COMPONENTS.values()));
 		assertEquals(CombatSkill.PRAYER, LampGuard.SKILL_COMPONENTS.get(InterfaceID.Xpreward.PRAYER));
 	}
+
+	@Test
+	public void selectionFollowsClicks()
+	{
+		assertEquals(CombatSkill.MAGIC, LampGuard.nextSelection(null, InterfaceID.Xpreward.MAGIC));
+		assertEquals(null, LampGuard.nextSelection(CombatSkill.DEFENCE, InterfaceID.Xpreward.COOKING));
+		assertEquals(CombatSkill.DEFENCE, LampGuard.nextSelection(CombatSkill.DEFENCE, InterfaceID.Xpreward.CONFIRM));
+		assertEquals(CombatSkill.DEFENCE, LampGuard.nextSelection(CombatSkill.DEFENCE, InterfaceID.INVENTORY));
+	}
 }

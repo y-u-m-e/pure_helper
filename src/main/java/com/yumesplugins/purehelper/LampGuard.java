@@ -48,16 +48,27 @@ public class LampGuard
 		return selected != null && build.protects(selected) && !shiftHeld;
 	}
 
+	/** A click on a combat skill selects it; any other click inside the lamp group (a non-combat skill) clears it. */
+	static CombatSkill nextSelection(CombatSkill current, int widgetId)
+	{
+		if (SKILL_COMPONENTS.containsKey(widgetId))
+		{
+			return SKILL_COMPONENTS.get(widgetId);
+		}
+		boolean inGroup = widgetId >>> 16 == InterfaceID.XPREWARD;
+		return inGroup && widgetId != InterfaceID.Xpreward.CONFIRM ? null : current;
+	}
+
 	/** Client thread. */
 	void onMenuOptionClicked(MenuOptionClicked event)
 	{
 		int id = event.getWidgetId();
-		if (SKILL_COMPONENTS.containsKey(id))
+		if (id != InterfaceID.Xpreward.CONFIRM)
 		{
-			selected = SKILL_COMPONENTS.get(id);
+			selected = nextSelection(selected, id);
 			return;
 		}
-		if (id != InterfaceID.Xpreward.CONFIRM || selected == null)
+		if (selected == null)
 		{
 			return;
 		}
