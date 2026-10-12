@@ -77,4 +77,11 @@ public class BuildTest
 		Build capped = build(CombatSkill.ATTACK, 60, Experience.getXpForLevel(61) - 1);
 		assertFalse(capped.nearestCap().isPresent());
 	}
+
+	@Test
+	public void xpReturnsCurrentXp()
+	{
+		assertEquals(123, build(CombatSkill.ATTACK, 50, 123).xp(CombatSkill.ATTACK));
+		assertEquals(0, build(CombatSkill.ATTACK, 50, 123).xp(CombatSkill.MAGIC));
+	}
 }

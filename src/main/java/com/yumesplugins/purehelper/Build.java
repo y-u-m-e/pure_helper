@@ -42,6 +42,11 @@ public final class Build
 		return protects(s) ? Experience.getXpForLevel(cap(s) + 1) - 1 : Integer.MAX_VALUE;
 	}
 
+	public int xp(CombatSkill s)
+	{
+		return xp.get(s);
+	}
+
 	public boolean protects(CombatSkill s)
 	{
 		return cap(s) < MAX_LEVEL;
