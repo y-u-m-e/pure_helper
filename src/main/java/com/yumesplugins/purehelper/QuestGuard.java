@@ -31,6 +31,7 @@ public class QuestGuard
 	/** Tinted widget key -> reason; read by the overlay on the render thread. */
 	private final Map<Long, String> reasons = new ConcurrentHashMap<>();
 	private final Map<Long, Integer> originalColors = new HashMap<>(); // client thread only
+	private final Map<Long, Integer> paintedColors = new HashMap<>(); // colour we set per row; client thread only
 
 	QuestGuard(Client client, PureHelperConfig config, Supplier<Build> build)
 	{
@@ -54,10 +55,10 @@ public class QuestGuard
 		return enabled && build != Build.EMPTY;
 	}
 
-	/** Colour to restore a row to, or null when the game has since re-coloured it (or we stored nothing). */
-	static Integer restoreColor(int currentColor, int accentRgb, Integer original)
+	/** Colour to restore a row to, or null when the game has since re-coloured it (or we painted/stored nothing); painted is the colour we set. */
+	static Integer restoreColor(int currentColor, Integer painted, Integer original)
 	{
-		return original != null && currentColor == accentRgb ? original : null;
+		return original != null && painted != null && currentColor == painted ? original : null;
 	}
 
 	void setRules(RewardRules rules)
@@ -71,12 +72,18 @@ public class QuestGuard
 		return offLimits;
 	}
 
+	/** Client thread. The game rebuilt the list (QUESTLIST_INIT): it re-coloured every row, so stored colours are stale. */
+	void onListRebuilt()
+	{
+		originalColors.clear();
+		paintedColors.clear();
+		reasons.clear();
+		refreshFinished();
+	}
+
 	/** Client thread. Recompute the finished-quest set (runs a script per quest), then {@link #refresh()}. */
 	void refreshFinished()
 	{
-		// every caller is a list (re)build: the game has re-coloured the rows, so stored colours are stale
-		originalColors.clear();
-		reasons.clear();
 		RewardRules r = rules;
 		if (r != null)
 		{
@@ -134,16 +141,18 @@ public class QuestGuard
 			RewardRules.Breach breach = t.get(extractQuestName(w.getText()));
 			if (breach != null)
 			{
-				if (w.getTextColor() != accent)
+				Integer painted = paintedColors.get(key);
+				if (painted == null || w.getTextColor() != painted)
 				{
 					originalColors.put(key, w.getTextColor());
 				}
 				w.setTextColor(accent);
+				paintedColors.put(key, accent);
 				reasons.put(key, breach.reason());
 			}
 			else
 			{
-				Integer restore = restoreColor(w.getTextColor(), accent, originalColors.remove(key));
+				Integer restore = restoreColor(w.getTextColor(), paintedColors.remove(key), originalColors.remove(key));
 				if (restore != null)
 				{
 					w.setTextColor(restore);
@@ -183,10 +192,9 @@ public class QuestGuard
 		{
 			List<Widget> texts = new ArrayList<>();
 			collectTextWidgets(list, texts);
-			int accent = config.accentColor().getRGB() & 0xFFFFFF;
 			for (Widget w : texts)
 			{
-				Integer restore = restoreColor(w.getTextColor(), accent, originalColors.get(key(w)));
+				Integer restore = restoreColor(w.getTextColor(), paintedColors.get(key(w)), originalColors.get(key(w)));
 				if (restore != null)
 				{
 					w.setTextColor(restore);
@@ -194,6 +202,7 @@ public class QuestGuard
 			}
 		}
 		originalColors.clear();
+		paintedColors.clear();
 		reasons.clear();
 		offLimits = Collections.emptyList();
 		finished = Collections.emptySet();

@@ -60,6 +60,9 @@ public class QuestGuardTest
 	public void restoresOnlyRowsStillInAccent()
 	{
 		assertEquals(Integer.valueOf(0xFFFF00), QuestGuard.restoreColor(0xE5484D, 0xE5484D, 0xFFFF00));
+		// config accent changed after painting: the painted (old) colour still identifies our row
+		assertEquals(Integer.valueOf(0x123456), QuestGuard.restoreColor(0xAA0000, 0xAA0000, 0x123456));
+		assertNull(QuestGuard.restoreColor(0xAA0000, null, 0x123456));
 		assertNull(QuestGuard.restoreColor(0x00FF00, 0xE5484D, 0xFFFF00));
 		assertNull(QuestGuard.restoreColor(0xE5484D, 0xE5484D, null));
 	}

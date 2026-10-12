@@ -201,7 +201,7 @@ public class PureHelperPlugin extends Plugin
 		}
 		else if (e.getScriptId() == ScriptID.QUESTLIST_INIT)
 		{
-			questGuard.refreshFinished();
+			questGuard.onListRebuilt();
 		}
 	}
 
