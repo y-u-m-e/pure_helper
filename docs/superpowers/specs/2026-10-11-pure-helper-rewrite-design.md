@@ -61,7 +61,9 @@ Each guard is one class, asks the `Build`, and reports catches to `RiskLog`.
   and PvP worlds: the Hub's PvP rule covers Attack/Cast menu options on players, not the local
   combat-style buttons. Pre-answered in the PR body.
 - **Warn:** if the active style is dangerous anyway (e.g. a weapon switch lands on a
-  defensive style), an infobox plus one chat line, and a `RiskLog` entry.
+  defensive style, or Shift was used to pick it), the `DangerOverlay` banner shows and stays
+  for as long as that style is active, plus an infobox, one chat line, a RuneLite
+  `Notification` (see Alerts) and a `RiskLog` entry.
 - `shutDown()` unhides every component it hid.
 
 ### QuestGuard (quests and diaries)
@@ -79,7 +81,17 @@ Each guard is one class, asks the `Build`, and reports catches to `RiskLog`.
 - Watches the skill-choice interface used by XP lamps and books.
 - **Block:** protected skills (`atCap`, or failing `allows` when the amount is known) get a
   danger mark. With one of them selected, the Confirm click is consumed and one chat line says
-  why. Shift + Confirm goes through and is logged as an override.
+  why. Shift + Confirm goes through and is logged as an override. A block also shows the
+  `DangerOverlay` banner for a few seconds.
+
+### Alerts (shared by all guards)
+
+- **`DangerOverlay`** — an on-screen banner at the top-centre of the game view, in the accent
+  colour: what is wrong and what it will train (`DEFENSIVE STYLE — trains Defence (cap 1)`).
+  Persistent while a dangerous combat style is active; transient (about 3 s) for blocks.
+- **RuneLite `Notification` config item** per alert, so the player picks flash, sound, tray
+  or off with core's own options. Default for a dangerous combat style: on with screen flash.
+- Every alert has its own toggle; the banner is on by default.
 
 ## 3. Risk log and panel
 
@@ -132,7 +144,8 @@ Session only.
 - `HubRulesTest` and `HubPackagingTest` from the `runelite-plugin` skill templates.
 
 **In game:** `gradlew runClient` per `.claude/rules/plugin-testing.md` (jx credential
-switch first). Checklist: style hiding + Shift reveal, weapon-switch warning, quest list
+switch first). Checklist: style hiding + Shift reveal, weapon-switch warning (banner stays
+until the style is safe, notification fires once), quest list
 tints and tooltips, lamp Confirm block + Shift override, `shutDown` restores the combat tab,
 panel states above.
 
@@ -155,6 +168,7 @@ One package `com.yumesplugins.purehelper`, one purpose per file:
 | `RewardRules` | quest/diary JSON loader and query |
 | `CombatGuard`, `QuestGuard`, `LampGuard` | one guard each |
 | `RiskLog` | session log |
+| `DangerOverlay` | on-screen warning banner |
 | `PureHelperPanel` | the panel |
 
 ## Open risks
