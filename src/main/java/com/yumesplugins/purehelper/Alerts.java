@@ -60,6 +60,13 @@ public class Alerts
 		persistent.remove(key);
 	}
 
+	public synchronized void reset()
+	{
+		persistent.clear();
+		flashText = null;
+		flashUntil = Instant.MIN;
+	}
+
 	public synchronized void flash(String text)
 	{
 		flashText = text;
