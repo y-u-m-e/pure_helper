@@ -79,9 +79,9 @@ public class BuildTest
 		Map<CombatSkill, Integer> xps = new EnumMap<>(CombatSkill.class);
 		caps.put(CombatSkill.ATTACK, 60);
 		caps.put(CombatSkill.STRENGTH, 70);
-		xps.put(CombatSkill.ATTACK, Experience.getXpForLevel(58));
+		xps.put(CombatSkill.ATTACK, Experience.getXpForLevel(59));
 		xps.put(CombatSkill.STRENGTH, Experience.getXpForLevel(69));
-		assertEquals(CombatSkill.STRENGTH, Build.of(caps, xps).nearestCap().get());
+		assertEquals(CombatSkill.ATTACK, Build.of(caps, xps).nearestCap().get());
 	}
 
 	@Test

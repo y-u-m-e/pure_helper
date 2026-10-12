@@ -4,7 +4,7 @@
 
 **Goal:** Replace v1 with a guard-based plugin: combat-style, quest/diary and lamp guards over one cap model, on-screen alerts, and a single-page panel.
 
-**Architecture:** `Build` (cap math), `StyleTable` and `RewardRules` are plain Java with no client calls and carry the unit tests. Each guard is one class: a static pure decision method (tested) plus thin event wiring. `Alerts` fans one alert out to banner, infobox, chat, notification and `RiskLog`. The panel only reads snapshots.
+**Architecture:** `Build` (cap math), `StyleTable` and `RewardRules` are plain Java with no client calls and carry the unit tests. Each guard is one class: a static pure decision method (tested) plus thin event wiring. `Alerts` fans one alert out to banner, chat, notification and `RiskLog`. The panel only reads snapshots.
 
 **Tech Stack:** Java 11 (`options.release.set(11)` — no records, no switch expressions, no text blocks), RuneLite client `latest.release`, Lombok, JUnit 4.12, Gson (injected).
 
@@ -18,7 +18,7 @@
 - Override everywhere is **holding Shift** (`client.isKeyPressed(KeyCode.KC_SHIFT)`).
 - One accent colour (config, default `#E5484D`), used only for danger. Everything else `ColorScheme`.
 - Panel 225 px wide (`PluginPanel`), 8 px grid, 10 px padding.
-- `shutDown()` undoes every widget change and removes overlays/infoboxes.
+- `shutDown()` undoes every widget change and removes overlays.
 - Commit after each task on `rewrite/v2` and push. No Hub PR in this plan — that is a separate, user-gated step.
 
 ## Review Focus

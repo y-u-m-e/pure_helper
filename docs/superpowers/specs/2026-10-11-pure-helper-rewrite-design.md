@@ -40,10 +40,11 @@ Prayer 1, the rest 99.
 
 - `ceiling(skill)` = `xpForLevel(cap + 1) - 1` (99 → unbounded).
 - `allows(skill, xpGain)` → `currentXp + xpGain <= ceiling`.
-- `atCap(skill)` → `currentXp >= ceiling(skill)` — used where the gain size is unknown
+- `atCap(skill)` → protected && `level >= cap` — used where the gain size is unknown
   (a combat style gives XP indefinitely). Attack capped at 60 with level 50 is not at cap,
   so its styles stay available until 60.
-- `xpLeft(skill)` for the panel.
+- `xpLeft(skill)` for the panel: XP until reaching the cap level (`xpForLevel(cap) - currentXp`,
+  floored at 0). Near-cap window = `xpForLevel(cap) / 10`.
 
 Rebuilt on `StatChanged` and `ConfigChanged`; guards always read the current instance.
 Nothing is written to disk besides RuneLite config.
@@ -62,7 +63,7 @@ Each guard is one class, asks the `Build`, and reports catches to `RiskLog`.
   combat-style buttons. Pre-answered in the PR body.
 - **Warn:** if the active style is dangerous anyway (e.g. a weapon switch lands on a
   defensive style, or Shift was used to pick it), the `DangerOverlay` banner shows and stays
-  for as long as that style is active, plus an infobox, one chat line, a RuneLite
+  for as long as that style is active, plus one chat line, a RuneLite
   `Notification` (see Alerts) and a `RiskLog` entry.
 - `shutDown()` unhides every component it hid.
 

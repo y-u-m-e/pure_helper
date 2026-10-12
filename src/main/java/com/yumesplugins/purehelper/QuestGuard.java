@@ -72,13 +72,12 @@ public class QuestGuard
 		return offLimits;
 	}
 
-	/** Client thread. The game rebuilt the list (QUESTLIST_INIT): it re-coloured every row, so stored colours are stale. */
+	/** Client thread. The game rebuilt the list (QUESTLIST_INIT): it re-coloured every row, so stored colours are stale. The caller defers refreshFinished(). */
 	void onListRebuilt()
 	{
 		originalColors.clear();
 		paintedColors.clear();
 		reasons.clear();
-		refreshFinished();
 	}
 
 	/** Client thread. Recompute the finished-quest set (runs a script per quest), then {@link #refresh()}. */
@@ -166,7 +165,8 @@ public class QuestGuard
 	String reasonAt(Point mouse)
 	{
 		Widget list = client.getWidget(InterfaceID.Questlist.LIST);
-		if (mouse == null || reasons.isEmpty() || list == null || list.isHidden())
+		if (mouse == null || reasons.isEmpty() || list == null || list.isHidden()
+			|| !list.getBounds().contains(mouse.getX(), mouse.getY()))
 		{
 			return null;
 		}

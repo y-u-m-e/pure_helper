@@ -89,11 +89,13 @@ public class PureHelperPlugin extends Plugin
 	private QuestTooltipOverlay questTooltipOverlay;
 	private PureHelperPanel panel;
 	private NavigationButton navButton;
+	private volatile boolean running;
 	private volatile PanelState pushed; // last state handed to the panel; cleared on config change
 
 	@Override
 	protected void startUp()
 	{
+		running = true;
 		overlayManager.add(dangerOverlay);
 		combatGuard = new CombatGuard(client, config, alerts, () -> build, (id, hidden) ->
 		{
@@ -124,7 +126,7 @@ public class PureHelperPlugin extends Plugin
 			}
 			clientThread.invoke(() ->
 			{
-				if (client.getGameState() == GameState.LOGGED_IN)
+				if (running && client.getGameState() == GameState.LOGGED_IN)
 				{
 					qg.refreshFinished();
 				}
@@ -148,6 +150,7 @@ public class PureHelperPlugin extends Plugin
 	@Override
 	protected void shutDown()
 	{
+		running = false;
 		overlayManager.remove(dangerOverlay);
 		overlayManager.remove(lampOverlay);
 		overlayManager.remove(questTooltipOverlay);
@@ -175,7 +178,7 @@ public class PureHelperPlugin extends Plugin
 		Map<CombatSkill, Integer> xpMap = new EnumMap<>(CombatSkill.class);
 		for (CombatSkill s : CombatSkill.values())
 		{
-			capMap.put(s, caps[s.ordinal()]); // enum order matches the array above
+			capMap.put(s, Math.max(1, Math.min(99, caps[s.ordinal()]))); // enum order matches the array above
 			xpMap.put(s, client.getSkillExperience(s.skill()));
 		}
 		build = Build.of(capMap, xpMap);
@@ -221,9 +224,13 @@ public class PureHelperPlugin extends Plugin
 	{
 		if ("purehelper".equals(e.getGroup()))
 		{
-			pushed = null; // the accent colour may have changed, so repaint even if the state did not
-			rebuildAndRefresh();
-			clientThread.invoke(this::pushPanel); // no GameTicks while logged out
+			// ConfigChanged fires on the editing thread (EDT); guards and widgets are client-thread-only
+			clientThread.invoke(() ->
+			{
+				pushed = null; // the accent colour may have changed, so repaint even if the state did not
+				rebuildAndRefresh();
+				pushPanel(); // no GameTicks while logged out
+			});
 		}
 	}
 
@@ -237,6 +244,7 @@ public class PureHelperPlugin extends Plugin
 		else if (e.getScriptId() == ScriptID.QUESTLIST_INIT)
 		{
 			questGuard.onListRebuilt();
+			clientThread.invokeLater(questGuard::refreshFinished); // runScript is not reentrant from a script callback
 		}
 	}
 
@@ -290,7 +298,7 @@ public class PureHelperPlugin extends Plugin
 		}
 		else if (e.getGroupId() == InterfaceID.QUESTLIST)
 		{
-			questGuard.refreshFinished();
+			clientThread.invokeLater(questGuard::refreshFinished); // runScript is not reentrant from a widget callback
 		}
 	}
 
