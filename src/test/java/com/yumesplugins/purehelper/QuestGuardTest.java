@@ -2,6 +2,7 @@ package com.yumesplugins.purehelper;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import com.google.gson.Gson;
@@ -53,5 +54,21 @@ public class QuestGuardTest
 	public void emptyBuildHasNoBreaches()
 	{
 		assertTrue(RewardRules.breaches(rules().quests(), Build.EMPTY, Collections.emptySet()).isEmpty());
+	}
+
+	@Test
+	public void restoresOnlyRowsStillInAccent()
+	{
+		assertEquals(Integer.valueOf(0xFFFF00), QuestGuard.restoreColor(0xE5484D, 0xE5484D, 0xFFFF00));
+		assertNull(QuestGuard.restoreColor(0x00FF00, 0xE5484D, 0xFFFF00));
+		assertNull(QuestGuard.restoreColor(0xE5484D, 0xE5484D, null));
+	}
+
+	@Test
+	public void tintGate()
+	{
+		assertFalse(QuestGuard.shouldTint(true, Build.EMPTY));
+		assertFalse(QuestGuard.shouldTint(false, defenceCap1()));
+		assertTrue(QuestGuard.shouldTint(true, defenceCap1()));
 	}
 }

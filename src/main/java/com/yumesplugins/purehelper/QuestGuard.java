@@ -49,6 +49,17 @@ public class QuestGuard
 		return out;
 	}
 
+	static boolean shouldTint(boolean enabled, Build build)
+	{
+		return enabled && build != Build.EMPTY;
+	}
+
+	/** Colour to restore a row to, or null when the game has since re-coloured it (or we stored nothing). */
+	static Integer restoreColor(int currentColor, int accentRgb, Integer original)
+	{
+		return original != null && currentColor == accentRgb ? original : null;
+	}
+
 	void setRules(RewardRules rules)
 	{
 		this.rules = rules;
@@ -63,6 +74,9 @@ public class QuestGuard
 	/** Client thread. Recompute the finished-quest set (runs a script per quest), then {@link #refresh()}. */
 	void refreshFinished()
 	{
+		// every caller is a list (re)build: the game has re-coloured the rows, so stored colours are stale
+		originalColors.clear();
+		reasons.clear();
 		RewardRules r = rules;
 		if (r != null)
 		{
@@ -98,7 +112,7 @@ public class QuestGuard
 		// shortcut: diary completion is not checked, so finished tiers still show; add varbit checks if players ask
 		all.addAll(RewardRules.breaches(r.diaryTiers(), b, Collections.emptySet()));
 		offLimits = Collections.unmodifiableList(all);
-		tints = config.questGuard() && b != Build.EMPTY ? tints(quests) : Collections.emptyMap();
+		tints = shouldTint(config.questGuard(), b) ? tints(quests) : Collections.emptyMap();
 		tintQuestList();
 	}
 
@@ -113,22 +127,26 @@ public class QuestGuard
 		List<Widget> texts = new ArrayList<>();
 		collectTextWidgets(list, texts);
 		Map<String, RewardRules.Breach> t = tints;
+		int accent = config.accentColor().getRGB() & 0xFFFFFF;
 		for (Widget w : texts)
 		{
 			long key = key(w);
 			RewardRules.Breach breach = t.get(extractQuestName(w.getText()));
 			if (breach != null)
 			{
-				originalColors.putIfAbsent(key, w.getTextColor());
-				w.setTextColor(config.accentColor().getRGB() & 0xFFFFFF);
+				if (w.getTextColor() != accent)
+				{
+					originalColors.put(key, w.getTextColor());
+				}
+				w.setTextColor(accent);
 				reasons.put(key, breach.reason());
 			}
 			else
 			{
-				Integer original = originalColors.remove(key);
-				if (original != null)
+				Integer restore = restoreColor(w.getTextColor(), accent, originalColors.remove(key));
+				if (restore != null)
 				{
-					w.setTextColor(original);
+					w.setTextColor(restore);
 				}
 				reasons.remove(key);
 			}
@@ -165,12 +183,13 @@ public class QuestGuard
 		{
 			List<Widget> texts = new ArrayList<>();
 			collectTextWidgets(list, texts);
+			int accent = config.accentColor().getRGB() & 0xFFFFFF;
 			for (Widget w : texts)
 			{
-				Integer original = originalColors.get(key(w));
-				if (original != null)
+				Integer restore = restoreColor(w.getTextColor(), accent, originalColors.get(key(w)));
+				if (restore != null)
 				{
-					w.setTextColor(original);
+					w.setTextColor(restore);
 				}
 			}
 		}
