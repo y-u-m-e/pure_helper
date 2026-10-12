@@ -9,6 +9,10 @@ import net.runelite.api.GameState;
 import net.runelite.api.ScriptID;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.MenuOptionClicked;
+import net.runelite.api.events.WidgetClosed;
+import net.runelite.api.events.WidgetLoaded;
+import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.events.ScriptPostFired;
 import net.runelite.api.events.StatChanged;
 import net.runelite.api.events.VarbitChanged;
@@ -46,6 +50,8 @@ public class PureHelperPlugin extends Plugin
 
 	private volatile Build build = Build.EMPTY;
 	private CombatGuard combatGuard;
+	private LampGuard lampGuard;
+	private LampOverlay lampOverlay;
 
 	@Override
 	protected void startUp()
@@ -59,6 +65,9 @@ public class PureHelperPlugin extends Plugin
 				w.setHidden(hidden);
 			}
 		});
+		lampGuard = new LampGuard(client, config, alerts, () -> build);
+		lampOverlay = new LampOverlay(client, config, () -> build);
+		overlayManager.add(lampOverlay);
 		clientThread.invoke(this::rebuildAndRefresh);
 	}
 
@@ -66,9 +75,11 @@ public class PureHelperPlugin extends Plugin
 	protected void shutDown()
 	{
 		overlayManager.remove(dangerOverlay);
+		overlayManager.remove(lampOverlay);
+		final CombatGuard g = combatGuard;
 		clientThread.invoke(() ->
 		{
-			combatGuard.reset();
+			g.reset();
 			alerts.reset();
 		});
 	}
@@ -153,6 +164,30 @@ public class PureHelperPlugin extends Plugin
 	public void onClientTick(ClientTick e)
 	{
 		combatGuard.onClientTick();
+	}
+
+	@Subscribe
+	public void onMenuOptionClicked(MenuOptionClicked e)
+	{
+		lampGuard.onMenuOptionClicked(e);
+	}
+
+	@Subscribe
+	public void onWidgetLoaded(WidgetLoaded e)
+	{
+		if (e.getGroupId() == InterfaceID.XPREWARD)
+		{
+			lampGuard.clearSelection();
+		}
+	}
+
+	@Subscribe
+	public void onWidgetClosed(WidgetClosed e)
+	{
+		if (e.getGroupId() == InterfaceID.XPREWARD)
+		{
+			lampGuard.clearSelection();
+		}
 	}
 
 	@Provides

@@ -79,8 +79,8 @@ Each guard is one class, asks the `Build`, and reports catches to `RiskLog`.
 ### LampGuard (lamps, books, diary reward choices)
 
 - Watches the skill-choice interface used by XP lamps and books.
-- **Block:** protected skills (`atCap`, or failing `allows` when the amount is known) get a
-  danger mark. With one of them selected, the Confirm click is consumed and one chat line says
+- **Block:** any protected skill (cap < 99) gets a danger mark and is blocked, because lamp
+  XP amounts aren't shown on the interface. With one of them selected, the Confirm click is consumed and one chat line says
   why. Shift + Confirm goes through and is logged as an override. A block also shows the
   `DangerOverlay` banner for a few seconds.
 
