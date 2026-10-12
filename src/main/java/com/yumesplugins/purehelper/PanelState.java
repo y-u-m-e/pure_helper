@@ -12,6 +12,7 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.Value;
+import net.runelite.api.Experience;
 
 /** Everything the panel shows, built on the client thread. Immutable and comparable, so unchanged states are not pushed. */
 @Value
@@ -38,7 +39,7 @@ public class PanelState
 		int cap;
 		boolean guarded;
 		int xpLeft;
-		/** XP over the ceiling, 0..1; 0 when unguarded. */
+		/** XP over the cap level's XP, 0..1; 0 when unguarded. */
 		double progress;
 		boolean locked;
 		/** Within 10% of the cap, or at it. */
@@ -107,7 +108,7 @@ public class PanelState
 		for (CombatSkill s : CombatSkill.values())
 		{
 			boolean guarded = build.protects(s);
-			double progress = guarded ? Math.min(1.0, Math.max(0.0, (double) build.xp(s) / build.ceiling(s))) : 0;
+			double progress = !guarded ? 0 : build.atCap(s) ? 1.0 : (double) build.xp(s) / Experience.getXpForLevel(build.cap(s));
 			tiles.add(new Tile(s, build.level(s), build.cap(s), guarded, build.xpLeft(s), progress, build.atCap(s), build.nearCap(s)));
 		}
 

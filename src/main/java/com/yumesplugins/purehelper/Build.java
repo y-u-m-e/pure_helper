@@ -52,9 +52,10 @@ public final class Build
 		return cap(s) < MAX_LEVEL;
 	}
 
+	/** The skill has reached its cap level, so any further training is unwanted. */
 	public boolean atCap(CombatSkill s)
 	{
-		return protects(s) && xp.get(s) >= ceiling(s);
+		return protects(s) && level(s) >= cap(s);
 	}
 
 	public boolean allows(CombatSkill s, int xpGain)
@@ -62,9 +63,10 @@ public final class Build
 		return (long) xp.get(s) + xpGain <= ceiling(s);
 	}
 
+	/** XP until the cap level is reached. */
 	public int xpLeft(CombatSkill s)
 	{
-		return protects(s) ? Math.max(0, ceiling(s) - xp.get(s)) : Integer.MAX_VALUE;
+		return protects(s) ? Math.max(0, Experience.getXpForLevel(cap(s)) - xp.get(s)) : Integer.MAX_VALUE;
 	}
 
 	public int level(CombatSkill s)
@@ -72,17 +74,17 @@ public final class Build
 		return Experience.getLevelForXp(xp.get(s));
 	}
 
-	/** Protected and within 10% of the ceiling's XP span (at cap included). */
+	/** Protected, below the cap level, and within 10% of the cap level's XP. */
 	public boolean nearCap(CombatSkill s)
 	{
-		return protects(s) && xpLeft(s) <= ceiling(s) / 10;
+		return protects(s) && !atCap(s) && xpLeft(s) <= Experience.getXpForLevel(cap(s)) / 10;
 	}
 
-	/** The protected, not-yet-capped skill closest to its ceiling, if within 10% of the ceiling's XP span. */
+	/** The protected, not-yet-capped skill closest to its cap level, if near it. */
 	public Optional<CombatSkill> nearestCap()
 	{
 		return java.util.Arrays.stream(CombatSkill.values())
-			.filter(s -> nearCap(s) && !atCap(s))
+			.filter(this::nearCap)
 			.min(Comparator.comparingInt(this::xpLeft));
 	}
 }

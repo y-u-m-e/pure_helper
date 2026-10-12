@@ -39,12 +39,27 @@ public class BuildTest
 	}
 
 	@Test
-	public void atCapWhenXpAtCeiling()
+	public void oneDefPureAtZeroXpIsAtCap()
+	{
+		assertTrue(build(CombatSkill.DEFENCE, 1, 0).atCap(CombatSkill.DEFENCE));
+		assertTrue(build(CombatSkill.DEFENCE, 1, 82).atCap(CombatSkill.DEFENCE));
+	}
+
+	@Test
+	public void attackFiftyCapSixtyNotAtCap()
 	{
 		assertFalse(build(CombatSkill.ATTACK, 60, Experience.getXpForLevel(50)).atCap(CombatSkill.ATTACK));
-		Build b = build(CombatSkill.ATTACK, 60, 0);
-		int ceiling = b.ceiling(CombatSkill.ATTACK);
-		assertTrue(build(CombatSkill.ATTACK, 60, ceiling).atCap(CombatSkill.ATTACK));
+		assertTrue(build(CombatSkill.ATTACK, 60, Experience.getXpForLevel(60)).atCap(CombatSkill.ATTACK));
+	}
+
+	@Test
+	public void xpLeftIsXpToCapLevel()
+	{
+		int xp = Experience.getXpForLevel(58);
+		Build b = build(CombatSkill.ATTACK, 60, xp);
+		assertEquals(Experience.getXpForLevel(60) - xp, b.xpLeft(CombatSkill.ATTACK));
+		assertEquals(0, build(CombatSkill.DEFENCE, 1, 0).xpLeft(CombatSkill.DEFENCE));
+		assertEquals(Integer.MAX_VALUE, Build.EMPTY.xpLeft(CombatSkill.ATTACK));
 	}
 
 	@Test
@@ -64,8 +79,8 @@ public class BuildTest
 		Map<CombatSkill, Integer> xps = new EnumMap<>(CombatSkill.class);
 		caps.put(CombatSkill.ATTACK, 60);
 		caps.put(CombatSkill.STRENGTH, 70);
-		xps.put(CombatSkill.ATTACK, (int) ((Experience.getXpForLevel(61) - 1) * 0.95));
-		xps.put(CombatSkill.STRENGTH, (int) ((Experience.getXpForLevel(71) - 1) * 0.99));
+		xps.put(CombatSkill.ATTACK, Experience.getXpForLevel(58));
+		xps.put(CombatSkill.STRENGTH, Experience.getXpForLevel(69));
 		assertEquals(CombatSkill.STRENGTH, Build.of(caps, xps).nearestCap().get());
 	}
 
@@ -74,8 +89,14 @@ public class BuildTest
 	{
 		assertFalse(build(CombatSkill.ATTACK, 60, 0).nearestCap().isPresent());
 		assertFalse(Build.EMPTY.nearestCap().isPresent());
-		Build capped = build(CombatSkill.ATTACK, 60, Experience.getXpForLevel(61) - 1);
+		Build capped = build(CombatSkill.ATTACK, 60, Experience.getXpForLevel(60));
 		assertFalse(capped.nearestCap().isPresent());
+	}
+
+	@Test
+	public void nearestCapPicksLevel59OfCap60()
+	{
+		assertEquals(CombatSkill.ATTACK, build(CombatSkill.ATTACK, 60, Experience.getXpForLevel(59)).nearestCap().get());
 	}
 
 	@Test

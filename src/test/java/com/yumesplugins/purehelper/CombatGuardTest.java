@@ -70,13 +70,22 @@ public class CombatGuardTest
 	@Test
 	public void defensiveIsDangerousOnA1Def()
 	{
-		assertEquals(Set.of(3), CombatGuard.dangerousSlots(SCIM, build(1, 83)));
+		assertEquals(Set.of(3), CombatGuard.dangerousSlots(SCIM, build(1, 0)));
+	}
+
+	@Test
+	public void defensiveHiddenForFreshOneDefPure()
+	{
+		current = build(1, 0);
+		guard.apply(SCIM, 0, false);
+		assertEquals(1, calls.size());
+		assertTrue(calls.get(0).endsWith(":true"));
 	}
 
 	@Test
 	public void controlledIsDangerousWhenAnyTrainedSkillCapped()
 	{
-		assertEquals(Set.of(1, 2), CombatGuard.dangerousSlots(WHIP, build(1, 83)));
+		assertEquals(Set.of(1, 2), CombatGuard.dangerousSlots(WHIP, build(1, 0)));
 	}
 
 	@Test
@@ -96,14 +105,14 @@ public class CombatGuardTest
 	@Test
 	public void raisingCapUnhides()
 	{
-		assertEquals(Set.of(3), CombatGuard.dangerousSlots(SCIM, build(1, 83)));
-		assertTrue(CombatGuard.dangerousSlots(SCIM, build(99, 83)).isEmpty());
+		assertEquals(Set.of(3), CombatGuard.dangerousSlots(SCIM, build(1, 0)));
+		assertTrue(CombatGuard.dangerousSlots(SCIM, build(99, 0)).isEmpty());
 	}
 
 	@Test
 	public void resetUnhidesAll()
 	{
-		current = build(1, 83);
+		current = build(1, 0);
 		guard.apply(SCIM, 0, false);
 		assertEquals(1, calls.size());
 		assertTrue(calls.get(0).endsWith(":true"));
@@ -116,7 +125,7 @@ public class CombatGuardTest
 	@Test
 	public void enterStayLeaveDangerous()
 	{
-		current = build(1, 83);
+		current = build(1, 0);
 		guard.apply(SCIM, 3, false);
 		assertEquals("DEFENSIVE STYLE — trains Defence (cap 1)", alerts.bannerText());
 		assertEquals(1, log.snapshot().size());

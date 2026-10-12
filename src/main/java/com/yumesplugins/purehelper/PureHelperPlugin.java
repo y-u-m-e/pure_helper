@@ -223,6 +223,7 @@ public class PureHelperPlugin extends Plugin
 		{
 			pushed = null; // the accent colour may have changed, so repaint even if the state did not
 			rebuildAndRefresh();
+			clientThread.invoke(this::pushPanel); // no GameTicks while logged out
 		}
 	}
 

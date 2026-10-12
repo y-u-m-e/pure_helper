@@ -16,15 +16,16 @@ import org.junit.Test;
 
 public class PanelStateTest
 {
+	private static final String LEFT_59 = String.format("%,d", net.runelite.api.Experience.getXpForLevel(60) - net.runelite.api.Experience.getXpForLevel(59)) + " XP left";
 	private static final Instant NOW = Instant.parse("2026-10-11T12:00:00Z");
 
-	/** Attack capped at 60 with 290,000 XP: level 60, 12,287 XP short of 61. Strength unprotected at level 40. */
+	/** Attack capped at 60, sitting at level 59. Strength unprotected at level 40. */
 	private static Build nearCap()
 	{
 		Map<CombatSkill, Integer> caps = new EnumMap<>(CombatSkill.class);
 		caps.put(CombatSkill.ATTACK, 60);
 		Map<CombatSkill, Integer> xp = new EnumMap<>(CombatSkill.class);
-		xp.put(CombatSkill.ATTACK, 290_000);
+		xp.put(CombatSkill.ATTACK, net.runelite.api.Experience.getXpForLevel(59));
 		xp.put(CombatSkill.STRENGTH, 37_224);
 		return Build.of(caps, xp);
 	}
@@ -64,9 +65,34 @@ public class PanelStateTest
 	public void heroShowsNearestCap()
 	{
 		PanelState s = state(nearCap(), Collections.emptyList(), 0);
-		assertEquals("ATTACK 60/60", s.getHeroTitle());
-		assertEquals("12,287 XP left", s.getHeroSub());
+		assertEquals("ATTACK 59/60", s.getHeroTitle());
+		assertEquals(LEFT_59, s.getHeroSub());
 		assertTrue(s.isHeroDanger());
+	}
+
+	@Test
+	public void heroShowsLevel58OfCap59()
+	{
+		// Level 58 of cap 60 is 49k XP out, beyond the 10% window; cap 59 puts level 58 inside it.
+		Map<CombatSkill, Integer> caps = new EnumMap<>(CombatSkill.class);
+		caps.put(CombatSkill.ATTACK, 59);
+		Map<CombatSkill, Integer> xp = new EnumMap<>(CombatSkill.class);
+		xp.put(CombatSkill.ATTACK, net.runelite.api.Experience.getXpForLevel(58));
+		PanelState s = state(Build.of(caps, xp), Collections.emptyList(), 0);
+		assertEquals("ATTACK 58/59", s.getHeroTitle());
+		int left = net.runelite.api.Experience.getXpForLevel(59) - net.runelite.api.Experience.getXpForLevel(58);
+		assertEquals(String.format("%,d", left) + " XP left", s.getHeroSub());
+	}
+
+	@Test
+	public void freshOneDefTileIsLocked()
+	{
+		Map<CombatSkill, Integer> caps = new EnumMap<>(CombatSkill.class);
+		caps.put(CombatSkill.DEFENCE, 1);
+		PanelState.Tile t = state(Build.of(caps, new EnumMap<>(CombatSkill.class)), Collections.emptyList(), 0).getTiles().get(2);
+		assertEquals(CombatSkill.DEFENCE, t.getSkill());
+		assertTrue(t.isLocked());
+		assertEquals(1.0, t.getProgress(), 0.0);
 	}
 
 	@Test
@@ -79,7 +105,7 @@ public class PanelStateTest
 		assertTrue(s.isHeroDanger());
 
 		List<RiskLog.Entry> old = Collections.singletonList(entry(NOW.minusSeconds(10), "Defensive selected", false, false));
-		assertEquals("ATTACK 60/60", state(nearCap(), old, 1).getHeroTitle());
+		assertEquals("ATTACK 59/60", state(nearCap(), old, 1).getHeroTitle());
 	}
 
 	@Test
@@ -105,7 +131,7 @@ public class PanelStateTest
 		List<PanelState.Tile> tiles = state(nearCap(), Collections.emptyList(), 0).getTiles();
 		assertEquals(7, tiles.size());
 		assertEquals(CombatSkill.ATTACK, tiles.get(0).getSkill());
-		assertEquals("Level 60 / cap 60 — 12,287 XP left", tiles.get(0).tooltip());
+		assertEquals("Level 59 / cap 60 — " + LEFT_59, tiles.get(0).tooltip());
 		assertEquals("Level 40 — not protected", tiles.get(1).tooltip());
 		assertEquals(0.0, tiles.get(1).getProgress(), 0.0);
 		assertTrue(tiles.get(0).getProgress() > 0.9 && tiles.get(0).getProgress() < 1.0);
