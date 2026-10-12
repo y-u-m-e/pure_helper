@@ -168,6 +168,7 @@ One package `com.yumesplugins.purehelper`, one purpose per file:
 | `RewardRules` | quest/diary JSON loader and query |
 | `CombatGuard`, `QuestGuard`, `LampGuard` | one guard each |
 | `RiskLog` | session log |
+| `Alerts` | one alert fanned out to banner, chat, notification; records catches in RiskLog |
 | `DangerOverlay` | on-screen warning banner |
 | `PureHelperPanel` | the panel |
 
